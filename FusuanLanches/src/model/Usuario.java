@@ -1,5 +1,7 @@
 package model;
 
+import util.MD5;
+
 /**
  * Modelo de usuário geral do sistema
  * O nível de acesso e privilégios são definidos por seu privilégios
@@ -8,14 +10,14 @@ package model;
 public class Usuario {
     
     private Pessoa pessoa;
-    private int    login;
+    private String login;
     private String senha;
 
     public Usuario() {
         
     }
     
-    public Usuario(Pessoa pessoa, int login, String senha) {
+    public Usuario(Pessoa pessoa, String login, String senha) {
         this.pessoa = pessoa;
         this.login = login;
         this.senha = senha;
@@ -29,23 +31,20 @@ public class Usuario {
         this.pessoa = pessoa;
     }
 
-    public int getLogin() {
+    public String getLogin() {
         return login;
     }
 
-    public void setLogin(int login) {
+    public void setLogin(String login) {
         this.login = login;
     }
 
-    /**
-     * @todo criptografar
-     */
-//    public String getSenha() {
-//        return senha;
-//    }
+    public String getSenha() {
+        return senha;
+    }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        this.senha = MD5.md5(senha);
     }
 
     @Override

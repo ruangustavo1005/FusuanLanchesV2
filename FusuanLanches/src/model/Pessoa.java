@@ -8,14 +8,16 @@ public abstract class Pessoa {
     
     private String cpfCnpj;
     private String nome;
+    private String email;
 
     public Pessoa() {
         
     }
 
-    public Pessoa(String cpfCnpj, String nome) {
+    public Pessoa(String cpfCnpj, String nome, String email) {
         this.cpfCnpj = cpfCnpj;
         this.nome = nome;
+        this.email = email;
     }
 
     public String getCpfCnpj() {
@@ -34,9 +36,17 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "Pessoa: CPF/CNPJ: " + cpfCnpj + ", Nome: " + nome;
+        return "Pessoa{" + "cpfCnpj=" + cpfCnpj + ", nome=" + nome + ", email=" + email + '}';
     }
-    
+
 }

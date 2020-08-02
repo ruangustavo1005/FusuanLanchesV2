@@ -1,7 +1,7 @@
 package view;
 
 /**
- *
+ * Tela principal do sistema
  * @author Ruan
  */
 public class Index extends javax.swing.JFrame {
@@ -15,6 +15,7 @@ public class Index extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fusuan Lanches");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -28,6 +29,7 @@ public class Index extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {

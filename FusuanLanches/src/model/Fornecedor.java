@@ -6,25 +6,15 @@ package model;
  */
 public class Fornecedor extends Pessoa{
     
-    private String email;
     private String telefone;
 
     public Fornecedor() {
         
     }
 
-    public Fornecedor(String email, String telefone, String cpfCnpj, String nome) {
-        super(cpfCnpj, nome);
-        this.email = email;
+    public Fornecedor(String telefone, String cpfCnpj, String nome, String email) {
+        super(cpfCnpj, nome, email);
         this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getTelefone() {
@@ -37,7 +27,7 @@ public class Fornecedor extends Pessoa{
 
     @Override
     public String toString() {
-        return "Fornecedor: Email: " + email + ", Telefone: " + telefone;
+        return "Fornecedor{" + "telefone=" + telefone + '}';
     }
     
 }

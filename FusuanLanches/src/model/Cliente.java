@@ -13,8 +13,8 @@ public class Cliente extends Pessoa {
     
     }
 
-    public Cliente(String dataNascimento, String cpfCnpj, String nome) {
-        super(cpfCnpj, nome);
+    public Cliente(String dataNascimento, String cpfCnpj, String email, String nome) {
+        super(cpfCnpj, nome, email);
         this.dataNascimento = dataNascimento;
     }
 
