@@ -74,6 +74,23 @@ public class Dao<Type> {
         return retorno;
     }
     
+    public boolean update(Type object) {
+        boolean retorno = true;
+        try {
+            this.begin();
+            em.merge(object);
+            this.commit();
+        }
+        catch (Exception e) { // seria daora fazer um log disso, acessível apenas pelo admin
+            System.out.println(e.getMessage());
+            retorno = false;
+            if (em.getTransaction().isActive()) {
+                this.rollback();
+            }
+        }
+        return retorno;
+    }
+    
     public Type get(int id) {
         Type object = null;
         try {

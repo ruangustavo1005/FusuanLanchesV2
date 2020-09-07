@@ -1,6 +1,5 @@
 package view;
 
-import exceptions.ExceptionMetodoNaoImplementado;
 import java.awt.event.ActionListener;
 import model.Configuracoes;
 import util.NumberUtils;
