@@ -97,14 +97,12 @@ public class ControllerLogin extends Controller {
 
     private Usuario validaLogin(Usuario usuario) {
         Usuario retorno = null;
-        
         for (Usuario usuarioSalvo : ControllerUsuario.getInstance().listar()) {
             if (usuarioSalvo.getLogin().equals(usuario.getLogin()) && usuarioSalvo.getSenha().equals(usuario.getSenha())) {
                 retorno = usuarioSalvo;
                 break;
             }
-        }
-        
+        } 
         return retorno;
     }
 
