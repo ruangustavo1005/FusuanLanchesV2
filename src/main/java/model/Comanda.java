@@ -2,15 +2,27 @@ package model;
 
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Modelo de comanda
  * @author Ruan
  */
+@Entity
+@Table(name = "tbcomanda")
 public class Comanda implements ListagemParcial {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int                    numero;
+    @ManyToOne
     private Atendente              atendente;
+    @ManyToOne
     private Cliente                cliente;
     private ArrayList<ComandaItem> itens;
     private String                 data;

@@ -3,12 +3,20 @@ package model;
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import util.Lista;
 
 /**
- * Modelo de uma solicitação de abastecimento dos suprimentos Ã  um fornecedor
+ * Modelo de uma solicitação de abastecimento dos suprimentos à um fornecedor
  * @author Ruan
  */
+@Entity
+@Table(name = "tbsolicitacaoabastecimento")
 public class SolicitacaoAbastecimento implements ListagemParcial {
 
     public static final int SITUACAO_ABERTA    = 1,
@@ -16,8 +24,12 @@ public class SolicitacaoAbastecimento implements ListagemParcial {
                             SITUACAO_VENCIDA   = 3,
                             SITUACAO_CANCELADA = 4;
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int                          numero;
+    @ManyToOne
     private Gerente                      gerente;
+    @ManyToOne
     private Fornecedor                   fornecedor;
     private ArrayList<AbastecimentoItem> itens;
     private String                       data;

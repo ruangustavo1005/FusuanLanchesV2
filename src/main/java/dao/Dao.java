@@ -91,7 +91,7 @@ public class Dao<Type> {
         return retorno;
     }
     
-    public Type get(int id) {
+    public Type get(Object id) {
         Type object = null;
         try {
             object = em.find(this.classe, id);
