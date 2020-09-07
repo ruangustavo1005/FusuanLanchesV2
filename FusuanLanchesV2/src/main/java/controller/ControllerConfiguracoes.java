@@ -3,6 +3,7 @@ package controller;
 import dao.Dao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import model.Configuracoes;
 import view.ViewConfiguracoes;
 
@@ -35,6 +36,12 @@ public class ControllerConfiguracoes extends Controller {
     
     @Override
     protected ViewConfiguracoes getInstanceView() {
+        ViewConfiguracoes view = ViewConfiguracoes.getInstance();
+        ArrayList<Configuracoes> configuracoes = this.configuracoes.getLista();
+        if (configuracoes.size() > 0) {
+            ViewConfiguracoes.getInstance().setConfiguracoes(configuracoes.get(0));
+            ViewConfiguracoes.getInstance().setModelTela();
+        }
         return ViewConfiguracoes.getInstance();
     }
     
@@ -58,13 +65,15 @@ public class ControllerConfiguracoes extends Controller {
     }
     
     private boolean salvar() {
-        if (configuracoes.get(0) != null) {
-            return this.configuracoes.remove(configuracoes.get(0))
-                && this.configuracoes.add(this.getInstanceView().getModelFromTela());
+        boolean retorno;
+        Configuracoes configuracoes = this.getInstanceView().getModelFromTela();
+        if (this.configuracoes.get(configuracoes.getId()) != null) {
+            retorno = this.configuracoes.update(configuracoes);
         }
         else {
-            return this.configuracoes.add(this.getInstanceView().getModelFromTela());
+            retorno = this.configuracoes.add(configuracoes);
         }
+        return retorno;
     }
     
 }
