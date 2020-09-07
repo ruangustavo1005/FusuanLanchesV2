@@ -1,11 +1,19 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Modelo das configurações do sistema.
  * @author Ruan
  */
+@Entity
+@Table(name = "tbconfig")
 public class Configuracoes {
     
+    @Id
+    private int   id;
     private float valorGasto;
     private int   visitas;
     private float descontoValorGasto;
@@ -24,6 +32,10 @@ public class Configuracoes {
         this.descontoVisitas = descontoVisitas;
         this.descontoAniversario = descontoAniversario;
         this.descontoPagamentoVista = descontoPagamentoVista;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public float getValorGasto() {

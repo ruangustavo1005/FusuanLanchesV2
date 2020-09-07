@@ -10,6 +10,7 @@
     <class>model.Log</class>
     <class>model.Pessoa</class>
     <class>model.Usuario</class>
+    <class>model.Configuracoes</class>
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>

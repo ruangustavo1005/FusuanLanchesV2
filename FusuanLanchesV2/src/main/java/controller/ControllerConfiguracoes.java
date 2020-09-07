@@ -58,7 +58,7 @@ public class ControllerConfiguracoes extends Controller {
     }
     
     private boolean salvar() {
-        if (configuracoes.getLista().size() > 0) {
+        if (configuracoes.get(0) != null) {
             return this.configuracoes.remove(configuracoes.get(0))
                 && this.configuracoes.add(this.getInstanceView().getModelFromTela());
         }

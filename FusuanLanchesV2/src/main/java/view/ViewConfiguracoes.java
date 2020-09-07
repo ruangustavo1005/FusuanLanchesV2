@@ -93,7 +93,7 @@ public class ViewConfiguracoes extends View {
         btnSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("ConfiguraÃ§Ãµes");
+        setTitle("Configurações");
 
         jLabel1.setText("Desconto por:");
 
@@ -190,7 +190,7 @@ public class ViewConfiguracoes extends View {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("AniversÃ¡rio", jPanel3);
+        jTabbedPane2.addTab("Aniversário", jPanel3);
 
         jLabel8.setText("Desconto:");
 
@@ -215,7 +215,7 @@ public class ViewConfiguracoes extends View {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Pagamento Ã  vista", jPanel4);
+        jTabbedPane2.addTab("Pagamento à vista", jPanel4);
 
         btnSalvar.setText("Salvar");
 

@@ -14,16 +14,17 @@ public class Dao<Type> {
     private final EntityManagerFactory emf;
     private final EntityManager em;
 
-    private final ArrayList<Type> lista;
     private final Class<Type> classe;
 
     public Dao(Class<Type> classe) {
         this.classe = classe;
-        this.lista = new ArrayList<>();
         emf = Persistence.createEntityManagerFactory("hibernatejpa");
         em  = emf.createEntityManager();
     }
     
+    /**
+     * @todo Trocar o nome do metodo para "get"
+     */
     public ArrayList<Type> getLista() {
         ArrayList<Type> lista = null;
         try {
@@ -52,12 +53,36 @@ public class Dao<Type> {
         return retorno;
     }
 
-    public boolean remove(Type object) {
-        return this.getLista().remove(object);
+    public boolean remove(int id) {
+        return this.remove(this.get(id));
     }
     
-    public Type get(int i) {
-        return this.getLista().get(i);
+    public boolean remove(Type object) {
+        boolean retorno = true;
+        try {
+            this.begin();
+            em.remove(object);
+            this.commit();
+        }
+        catch (Exception e) { // seria daora fazer um log disso, acessível apenas pelo admin
+            System.out.println(e.getMessage());
+            retorno = false;
+            if (em.getTransaction().isActive()) {
+                this.rollback();
+            }
+        }
+        return retorno;
+    }
+    
+    public Type get(int id) {
+        Type object = null;
+        try {
+            object = em.find(this.classe, id);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return object;
     }
     
     protected final void begin() {
@@ -70,11 +95,6 @@ public class Dao<Type> {
 
     protected final void rollback() {
         em.getTransaction().rollback();
-    }
-    
-    protected void close() {
-        em.close();
-        emf.close();
     }
     
 }
