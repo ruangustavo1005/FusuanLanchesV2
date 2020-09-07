@@ -105,10 +105,6 @@ public class ControllerLogin extends Controller {
             }
         }
         
-        if (usuario.getLogin().equals("123") && usuario.getSenha().equals(MD5.md5("123"))) {
-            retorno = usuario;
-        }
-        
         return retorno;
     }
 
