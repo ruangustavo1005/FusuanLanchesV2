@@ -179,8 +179,8 @@ public class ControllerComanda extends Controller{
     
     public ArrayList<Comanda> listarAbertas() {
         ArrayList<Comanda> abertas = new ArrayList<>();
-        for(Comanda comanda : this.comandas.getLista()){
-            if(comanda.getAberto()){
+        for (Comanda comanda : this.comandas.getLista()) {
+            if (comanda.getAberto()) {
                 abertas.add(comanda);
             }
         }
