@@ -15,7 +15,7 @@ public class ControllerFornecedor extends ControllerPessoa{
     public Dao<Fornecedor> fornecedores;
 
     private ControllerFornecedor() {
-        fornecedores = new Dao<>();
+        fornecedores = new Dao<>(Fornecedor.class);
     }
     
     public static ControllerFornecedor getInstance() {

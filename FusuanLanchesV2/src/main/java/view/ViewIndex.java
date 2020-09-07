@@ -26,7 +26,7 @@ public class ViewIndex extends View {
     }
     
     /**
-     * Adiciona o item de cadastro de usu√°rio no menu
+     * Adiciona o item de cadastro de usu·rio no menu
      */
     public void adicionaAcaoItemMenuCadastroUsuario(ActionListener actionListener) {
         this.imCadastroUsuario.addActionListener(actionListener);
@@ -40,77 +40,77 @@ public class ViewIndex extends View {
     }
     
     /**
-     * Adiciona a a√ß√£o de nova comanda
+     * Adiciona a aÁ„o de nova comanda
      */
     public void adicionaAcaoNovaComanda(ActionListener actionListener){
         this.btnNovaComanda.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de editar configura√ß√µes
+     * Adiciona a aÁ„o de editar configuraÁ„os
      */
     public void adicionaAcaoConfiguracoes(ActionListener actionListener){
         this.imConfiguracoes.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de consultar itens
+     * Adiciona a aÁ„o de consultar itens
      */
     public void adicionaAcaoConsultaItem(ActionListener actionListener){
         this.imConsultaItem.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de consultar os usu√°rios
+     * Adiciona a aÁ„o de consultar os usu·rios
      */
     public void adicionaAcaoConsultaUsuarios(ActionListener actionListener){
         this.imConsultaUsuario.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de consultar as pessoas
+     * Adiciona a aÁ„o de consultar as pessoas
      */
     public void adicionaAcaoConsultaPessoas(ActionListener actionListener){
         this.imConsultarPessoas.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de cadastrar solicita√ß√£o de abastecimento
+     * Adiciona a aÁ„o de cadastrar solicitaÁ„o de abastecimento
      */
     public void adicionaAcaoCadastroSolicitacaoAbastecimento(ActionListener actionListener){
         this.btnCadastroSolicitacaoAbastecimento.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de consultar as solicita√ß√µes de abastecimento
+     * Adiciona a aÁ de consultar as solicitaÁıes de abastecimento
      */
     public void adicionaAcaoConsultaSolicitacoesAbastecimento(ActionListener actionListener){
         this.imConsultaSolicitacoesAbastecimento.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de visualizar comanda
+     * Adiciona a aÁ„o de visualizar comanda
      */
     public void adicionaAcaoVisualizarComanda(ActionListener actionListener){
         this.btnVisualizar.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de remover comanda
+     * Adiciona a aÁ„o de remover comanda
      */
     public void adicionaAcaoRemoverComanda(ActionListener actionListener){
         this.btnRemover.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de fechar comanda
+     * Adiciona a aÁ„o de fechar comanda
      */
     public void adicionaAcaoFecharComanda(ActionListener actionListener){
         this.btnFechar.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a a√ß√£o de logout
+     * Adiciona a aÁ„o de logout
      */
     public void adicionaAcaoLogout(ActionListener actionListener){
         this.imLogout.addActionListener(actionListener);
@@ -157,7 +157,7 @@ public class ViewIndex extends View {
 
         btnNovaComanda.setText("Nova Comanda");
 
-        btnCadastroSolicitacaoAbastecimento.setText("Nova Solicita√ß√£o de Abastecimento");
+        btnCadastroSolicitacaoAbastecimento.setText("Nova SolicitaÁ£o de Abastecimento");
 
         tbComanda.setModel(tableModelComanda);
         jScrollPane1.setViewportView(tbComanda);
@@ -172,7 +172,7 @@ public class ViewIndex extends View {
 
         menuCadastros.setText("Cadastros");
 
-        imCadastroUsuario.setText("Usu√°rio");
+        imCadastroUsuario.setText("Usu·rio");
         menuCadastros.add(imCadastroUsuario);
 
         imCadastroItem.setText("Item");
@@ -185,20 +185,20 @@ public class ViewIndex extends View {
         imConsultaItem.setText("Itens");
         jMenu2.add(imConsultaItem);
 
-        imConsultaUsuario.setText("Usu√°rios");
+        imConsultaUsuario.setText("Usu·rios");
         jMenu2.add(imConsultaUsuario);
 
         imConsultarPessoas.setText("Pessoas");
         jMenu2.add(imConsultarPessoas);
 
-        imConsultaSolicitacoesAbastecimento.setText("Solicita√ß√µes de abastecimento");
+        imConsultaSolicitacoesAbastecimento.setText("SolicitaÁıes de abastecimento");
         jMenu2.add(imConsultaSolicitacoesAbastecimento);
 
         jMenuBar1.add(jMenu2);
 
         mnOutros.setText("Outros");
 
-        imConfiguracoes.setText("Configura√ß√µes");
+        imConfiguracoes.setText("ConfiguraÁıes");
         mnOutros.add(imConfiguracoes);
 
         imLogout.setText("Sair");

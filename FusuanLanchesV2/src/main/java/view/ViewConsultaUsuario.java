@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import model.Usuario;
 
 /**
- * View de consulta do usu√°rio
+ * View de consulta do usu·rio
  * @author Leonardo Alex Fusinato <leonardo.fusinato@edu.udesc.br>
  */
 public class ViewConsultaUsuario extends View {

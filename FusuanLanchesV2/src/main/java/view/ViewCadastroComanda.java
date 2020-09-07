@@ -83,21 +83,21 @@ public class ViewCadastroComanda extends View {
     }
     
     /**
-     * Adiciona a aÃ§Ã£o de adicionar item na comanda
+     * Adiciona a ação de adicionar item na comanda
      */
     public void adicionaAcaoAddItem(ActionListener actionListener) {
         this.btnAddItem.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a aÃ§Ã£o de remover o item da comanda
+     * Adiciona a ação de remover o item da comanda
      */
     public void adicionaAcaoRemoveItem(ActionListener actionListener) {
         this.btnRemover.addActionListener(actionListener);
     }
     
     /**
-     * Adiciona a aÃ§Ã£o de cadastrar a comanda
+     * Adiciona a ação de cadastrar a comanda
      */
     public void adicionaAcaoCadastrar(ActionListener actionListener) {
         this.btnCadastrar.addActionListener(actionListener);

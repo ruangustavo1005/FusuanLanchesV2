@@ -20,7 +20,7 @@ public class ControllerItem extends Controller {
     private Dao<Item> itens;
 
     private ControllerItem() {
-        itens = new Dao<>();
+        itens = new Dao<>(Item.class);
         this.adicionaAcoesTela();
     }
     
@@ -32,14 +32,14 @@ public class ControllerItem extends Controller {
     }
     
     /**
-     * Adiciona as aÃ§Ãµes na tela
+     * Adiciona as ações na tela
      */
     private void adicionaAcoesTela() {
         this.adicionaAcaoCadastrar();
     }
     
     /**
-     * Adiciona a aÃ§Ã£o para cadastrar o item
+     * Adiciona a ação para cadastrar o item
      */
     private void adicionaAcaoCadastrar() {
         getInstanceView().adicionaAcaoCadastrar(new ActionListener() {

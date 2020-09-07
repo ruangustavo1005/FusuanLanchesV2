@@ -4,7 +4,7 @@ import interfaces.ListagemParcial;
 import java.util.ArrayList;
 
 /**
- * Modelo de relacionamento soclitaÃ§Ã£o de abastecimento x item
+ * Modelo de relacionamento soclitação de abastecimento x item
  * @author Ruan
  */
 public class AbastecimentoItem implements ListagemParcial {

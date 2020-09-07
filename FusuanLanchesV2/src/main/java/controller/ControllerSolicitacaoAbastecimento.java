@@ -21,7 +21,7 @@ public class ControllerSolicitacaoAbastecimento extends Controller {
     private Dao<SolicitacaoAbastecimento> dao;
     
     private ControllerSolicitacaoAbastecimento() {
-        this.dao = new Dao<>();
+        this.dao = new Dao<>(SolicitacaoAbastecimento.class);
         this.getInstanceView().setaDadosTabelaItens(ControllerItem.getInstance().listar());
         this.adicionaAcoesTela();
     }
@@ -59,7 +59,7 @@ public class ControllerSolicitacaoAbastecimento extends Controller {
                     getInstanceView().showMensagem("Selecione um item!");
                 }
                 else if (quantidade == 0) {
-                    getInstanceView().showMensagem("Informe uma quantidade v√°lida!");
+                    getInstanceView().showMensagem("Informe uma quantidade v·lida!");
                 }
                 else {
                     AbastecimentoItem abastecimentoItem = new AbastecimentoItem();
@@ -79,11 +79,11 @@ public class ControllerSolicitacaoAbastecimento extends Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (salvar(getInstanceView().getModelFromTela())) {
-                    getInstanceView().showMensagem("Solicita√ß√£o de Abastecimento inclu√≠da com sucesso!");
+                    getInstanceView().showMensagem("SolicitaÁ„o de Abastecimento inclu√≠da com sucesso!");
                     getInstanceView().dispose();
                 }
                 else {
-                    getInstanceView().showMensagem("Houve um erro ao cadastrar a solicita√ß√£o de abastecimento.");
+                    getInstanceView().showMensagem("Houve um erro ao cadastrar a solicitaÁ„o de abastecimento.");
                 }
             }
         });
@@ -96,7 +96,7 @@ public class ControllerSolicitacaoAbastecimento extends Controller {
                 int indice = getInstanceView().getTbSolicitacaoItens().getSelectedRow();
                 
                 if (indice < 0) {
-                    getInstanceView().showMensagem("Selecione um item da solicita√ß√£o!");
+                    getInstanceView().showMensagem("Selecione um item da solicitaÁ„o!");
                 }
                 else {
                     getInstanceView().getTableModelSolicitacaoItens().remove(indice);

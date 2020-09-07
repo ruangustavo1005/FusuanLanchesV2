@@ -1,14 +1,25 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 /**
  * Modelo de item (comida, bebeida, etc.)
  * @author Ruan
  * @todo poderia ter um relaciomamento direto com os fornecedores, pra salvar quais fornecedores vendem tal produto
- *       assim podia facilitar o processo de solicitaÃ§Ã£o de abastecimento
+ *       assim podia facilitar o processo de solicitação de abastecimento
  */
+
+@Entity
+@Table(name="tbitem")
 public class Item {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int    codigo;
     private String nome;
     private float  valor;

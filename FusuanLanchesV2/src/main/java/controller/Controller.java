@@ -4,7 +4,7 @@ import exceptions.ExceptionMetodoNaoImplementado;
 import view.View;
 
 /**
- * Controlador padr√£o do sistema
+ * Controlador padr„o do sistema
  * @author Ruan
  */
 public abstract class Controller {

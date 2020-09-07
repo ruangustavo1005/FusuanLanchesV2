@@ -1,9 +1,12 @@
 package model;
 
+import javax.persistence.Entity;
+
 /**
  * Modelo de pessoa gerenciadora
  * @author Ruan
  */
+@Entity
 public class Gerente extends Pessoa{
 
     public Gerente() {

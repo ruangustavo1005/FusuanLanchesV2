@@ -15,7 +15,7 @@ public class ControllerCliente extends ControllerPessoa {
     public Dao<Cliente> clientes;
 
     private ControllerCliente() {
-        clientes = new Dao<>();
+        clientes = new Dao<>(Cliente.class);
     }
     
     public static ControllerCliente getInstance() {

@@ -13,7 +13,7 @@ import util.MD5;
 import view.ViewCadastroUsuario;
 
 /**
- * Controlador das rotinas de usu√°rio do sistema
+ * Controlador das rotinas de usu·rio do sistema
  * @author Ruan
  */
 public class ControllerUsuario extends Controller {
@@ -25,7 +25,7 @@ public class ControllerUsuario extends Controller {
     private Dao<Usuario> usuarios;
 
     private ControllerUsuario() {
-        usuarios = new Dao<>();
+        usuarios = new Dao<>(Usuario.class);
         this.adicionaAcoesTela();
     }
 
@@ -37,7 +37,7 @@ public class ControllerUsuario extends Controller {
     }
     
     /**
-     * Adiciona as a√ß√µes na tela
+     * Adiciona as aÁıes na tela
      */
     private void adicionaAcoesTela(){
         this.adicionaAcaoCadastrar();
@@ -45,7 +45,7 @@ public class ControllerUsuario extends Controller {
     }
     
     /**
-     * Adiciona a a√ß√£o de cadastrar na tela
+     * Adiciona a aÁ„o de cadastrar na tela
      */
     private void adicionaAcaoCadastrar() {
         this.getInstanceView().adicionaAcaoBotaoCadastrar(new ActionListener() {
@@ -53,10 +53,10 @@ public class ControllerUsuario extends Controller {
             public void actionPerformed(ActionEvent ae) {
                 if(senhasIguais()){
                     if(salvar()){
-                        getInstanceView().showMensagem("Usu√°rio adicionado com sucesso!");
+                        getInstanceView().showMensagem("Usu·rio adicionado com sucesso!");
                         getInstanceView().dispose();
                     }else{
-                        getInstanceView().showMensagem("Houve um erro ao cadastrar o usu√°rio");
+                        getInstanceView().showMensagem("Houve um erro ao cadastrar o usu·rio");
                     }
                 }else{
                     getInstanceView().showMensagem("As senhas devem ser iguais!");
@@ -66,14 +66,14 @@ public class ControllerUsuario extends Controller {
     }
     
     /**
-     * Valida se as senhas s√£o iguais
+     * Valida se as senhas s„o iguais
      */
     private boolean senhasIguais() {
         return getInstanceView().getModelFromTela().getSenha().equals(MD5.md5(getInstanceView().getSenhaConfirmacao()));
     }
     
     /**
-     * Adiciona a a√ß√£o de cancelar na tela
+     * Adiciona a aÁ„o de cancelar na tela
      */
     private void adicionaAcaoCancelar(){
         this.getInstanceView().adicionaAcaoBotaoCancelar(new ActionListener() {

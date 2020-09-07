@@ -1,11 +1,23 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 /**
- * Modelo padr√£o de pessoa
+ * Modelo padr„o de pessoa
  * @author Ruan
  */
+@Entity
+@Table(name = "tbpessoa")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Pessoa {
     
+    @Id
+    @Column(unique = true)
     private String cpfCnpj;
     private String nome;
     private String email;

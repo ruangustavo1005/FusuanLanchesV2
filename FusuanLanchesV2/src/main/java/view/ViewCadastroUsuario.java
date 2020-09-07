@@ -11,7 +11,7 @@ import model.Usuario;
 import util.MD5;
 
 /**
- * View de Cadastro do Usu√°rio
+ * View de Cadastro do Usu·rio
  *
  * @author Leonardo Alex Fusinato <leonardo.fusinato@edu.udesc.br>
  */

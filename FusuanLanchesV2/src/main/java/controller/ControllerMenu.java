@@ -37,7 +37,7 @@ public class ControllerMenu extends Controller {
     }
     
     /**
-     * Adiciona as a√ß√µes na tela
+     * Adiciona as aÁıes na tela
      */
     private void adicionaAcoesTela() {
         this.adicionaAcaoItemMenuCadastroUsuario();
@@ -56,7 +56,7 @@ public class ControllerMenu extends Controller {
     }
     
     /**
-     * Adiciona a a√ß√£o de nova comanda
+     * Adiciona a aÁ„o de nova comanda
      */
     private void adicionaAcaoNovaComanda(){
         this.getInstanceView().adicionaAcaoNovaComanda(new ActionListener() {
@@ -68,7 +68,7 @@ public class ControllerMenu extends Controller {
     }
     
     /**
-     * Adiciona a a√ß√£o do item menu de cadastro de usu√°rio
+     * Adiciona a aÁ„o do item menu de cadastro de usu·rio
      */
     private void adicionaAcaoItemMenuCadastroUsuario(){
         this.getInstanceView().adicionaAcaoItemMenuCadastroUsuario(new ActionListener() {
@@ -80,7 +80,7 @@ public class ControllerMenu extends Controller {
     }
     
     /**
-     * Adiciona a a√ß√£o do item menu de cadastro do item
+     * Adiciona a aÁ„o do item menu de cadastro do item
      */
     private void adicionaAcaoItemMenuCadastroItem() {
         this.getInstanceView().adicionaAcaoItemMenuCadastroItem(new ActionListener() {
@@ -92,7 +92,7 @@ public class ControllerMenu extends Controller {
     }
 
     /**
-     * Adiciona a a√ß√£o do bot√£o de editar configura√ß√µes
+     * Adiciona a aÁ„o do bot„o de editar configura√ßÁs
      */
     private void adicionaAcaoConfiguracoes() {
         this.getInstanceView().adicionaAcaoConfiguracoes(new ActionListener() {
@@ -104,7 +104,7 @@ public class ControllerMenu extends Controller {
     }
 
     /**
-     * Adiciona a a√ß√£o do bot√£o de consultar itens
+     * Adiciona a aÁ„o do bot„o de consultar itens
      */
     private void adicionaAcaoConsultarItens() {
         this.getInstanceView().adicionaAcaoConsultaItem(new ActionListener() {
@@ -116,7 +116,7 @@ public class ControllerMenu extends Controller {
     }
     
     /**
-     * Adiciona a a√ß√£o do bot√£o de consultar usu√°rios
+     * Adiciona a aÁ„o do bot„o de consultar usu·rios
      */
     private void adicionaAcaoConsultarUsuarios() {
         this.getInstanceView().adicionaAcaoConsultaUsuarios(new ActionListener() {
@@ -128,7 +128,7 @@ public class ControllerMenu extends Controller {
     }
     
     /**
-     * Adiciona a a√ß√£o de consulta de pessoas
+     * Adiciona a aÁ„o de consulta de pessoas
      */
     private void adicionaAcaoConsultarPessoas() {
         this.getInstanceView().adicionaAcaoConsultaPessoas(new ActionListener() {
@@ -140,7 +140,7 @@ public class ControllerMenu extends Controller {
     }
 
     /**
-     * Adiciona a a√ß√£o do bot√£o de cadastrar solicita√ß√µes de abastecimento
+     * Adiciona a aÁ„o do bot„o de cadastrar solicita√ßÁs de abastecimento
      */
     private void adicionaAcaoCadastroSolicitacaoAbastecimento() {
         this.getInstanceView().adicionaAcaoCadastroSolicitacaoAbastecimento(new ActionListener() {
@@ -152,7 +152,7 @@ public class ControllerMenu extends Controller {
     }
     
     /**
-     * Adiciona a a√ß√£o do bot√£o de consultar solicita√ß√µes de abastecimento
+     * Adiciona a aÁ„o do bot„o de consultar solicita√ßÁs de abastecimento
      */
     private void adicionaAcaoConsultaSolicitacoesAbastecimento() {
         this.getInstanceView().adicionaAcaoConsultaSolicitacoesAbastecimento(new ActionListener() {
@@ -182,7 +182,7 @@ public class ControllerMenu extends Controller {
     }
 
     /**
-     * Adiciona a a√ß√£o de remover a comanda
+     * Adiciona a aÁ„o de remover a comanda
      */
     private void adicionaAcaoRemoverComanda() {
         getInstanceView().adicionaAcaoRemoverComanda(new ActionListener() {
@@ -220,7 +220,7 @@ public class ControllerMenu extends Controller {
     }
     
     /**
-     * Adiciona a a√ß√£o do bot√£o de sair (logout)
+     * Adiciona a aÁ„o do bot„o de sair (logout)
      */
     private void adicionaAcaoLogout() {
         this.getInstanceView().adicionaAcaoLogout(new ActionListener() {

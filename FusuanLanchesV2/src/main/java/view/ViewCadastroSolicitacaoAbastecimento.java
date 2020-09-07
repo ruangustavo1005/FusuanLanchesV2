@@ -11,7 +11,7 @@ import model.SolicitacaoAbastecimento;
 import util.NumberUtils;
 
 /**
- * View de cadastro de solicitaÃ§Ã£o de abastecimento
+ * View de cadastro de solicitação de abastecimento
  * @author Ruan
  */
 public class ViewCadastroSolicitacaoAbastecimento extends View {

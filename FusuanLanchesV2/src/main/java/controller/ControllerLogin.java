@@ -29,7 +29,7 @@ public class ControllerLogin extends Controller {
     }
     
     /**
-     * Adiciona as a√ß√µes na tela
+     * Adiciona as aÁıes na tela
      */
     private void adicionaAcoesTela() {
         this.adicionaAcaoEntrarTela();
@@ -37,7 +37,7 @@ public class ControllerLogin extends Controller {
     }
     
     /**
-     * Adiciona a a√ß√£o de click de entrar no sistema
+     * Adiciona a aÁ„o de click de entrar no sistema
      */
     private void adicionaAcaoEntrarTela() {
         this.getInstanceView().adicionaAcaoBotaoEntrar(new ActionListener() {
@@ -59,9 +59,9 @@ public class ControllerLogin extends Controller {
                         ControllerMenu.getInstance().montaTela();
                     }
                     else if (usuario.isCliente()) {
-                        getInstanceView().showMensagem("Seu usu√°rio n√£o pode utilizar o sistema ainda! Aguarde por novas atualiza√ß√µes!");
+                        getInstanceView().showMensagem("Seu usu·rio n„o pode utilizar o sistema ainda! Aguarde por novas atualizaÁıes!");
                     }
-//                    Precisa tirar esse else, t√¥ deixando aqui pra funcionar o login 123/123
+//                    Precisa tirar esse else, t· deixando aqui pra funcionar o login 123/123
                     else {
                         ControllerMenu.getInstance().montaTela();
                     }
@@ -76,7 +76,7 @@ public class ControllerLogin extends Controller {
     }
     
     /**
-     * Adiciona a√ß√£o de click de cadastro de usu√°rio
+     * Adiciona aÁ„o de click de cadastro de usu·rio
      */
     private void adicionaAcaoCadastroTela(){
         this.getInstanceView().adicionaAcaoBotaoCadastro(new ActionListener() {

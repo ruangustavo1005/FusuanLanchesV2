@@ -15,7 +15,7 @@ public class ControllerAtendente extends ControllerPessoa {
     public Dao<Atendente> atendentes;
 
     private ControllerAtendente() {
-        atendentes = new Dao<>();
+        atendentes = new Dao<>(Atendente.class);
     }
     
     public static ControllerAtendente getInstance() {

@@ -3,7 +3,7 @@ package controller;
 import view.ViewConsultaUsuario;
 
 /**
- * Controlador da consulta dos usu√°rios
+ * Controlador da consulta dos usu·rios
  * @author Leonardo Alex Fusinato <leonardo.fusinato@edu.udesc.br>
  */
 public class ControllerConsultaUsuarios extends Controller {

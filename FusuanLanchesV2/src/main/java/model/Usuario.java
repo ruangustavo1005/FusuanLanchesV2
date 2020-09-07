@@ -2,16 +2,26 @@ package model;
 
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import util.MD5;
 
 /**
- * Modelo de usu√°rio geral do sistema
+ * Modelo de usu·rio geral do sistema
  * @author Ruan
  */
+@Entity
+@Table(name = "tbusuario")
 public class Usuario implements ListagemParcial {
     
-    private Pessoa pessoa;
+    @Id
+    @Column(unique = true)
     private String login;
+    @ManyToOne
+    private Pessoa pessoa;
     private String senha;
 
     public Usuario() {

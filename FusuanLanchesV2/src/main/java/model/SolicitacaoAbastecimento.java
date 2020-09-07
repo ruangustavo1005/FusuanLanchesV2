@@ -6,7 +6,7 @@ import java.util.HashMap;
 import util.Lista;
 
 /**
- * Modelo de uma solicitação de abastecimento dos suprimentos à um fornecedor
+ * Modelo de uma solicita��o de abastecimento dos suprimentos à um fornecedor
  * @author Ruan
  */
 public class SolicitacaoAbastecimento implements ListagemParcial {

@@ -17,7 +17,7 @@ public class ControllerConfiguracoes extends Controller {
     private Dao<Configuracoes> configuracoes;
     
     private ControllerConfiguracoes() {
-        this.configuracoes = new Dao<>();
+        this.configuracoes = new Dao<>(Configuracoes.class);
         this.adicionaAcoes();
     }
 
@@ -51,7 +51,7 @@ public class ControllerConfiguracoes extends Controller {
                     getInstanceView().setVisible(false);
                 }
                 else {
-                    getInstanceView().showMensagem("Houve um erro ao salvar suas configuraÃ§Ãµes.");
+                    getInstanceView().showMensagem("Houve um erro ao salvar suas configurações.");
                 }
             }
         });

@@ -34,7 +34,7 @@ public class ControllerComanda extends Controller{
     }
 
     private ControllerComanda() {
-        comandas = new Dao<>();
+        comandas = new Dao<>(Comanda.class);
         this.adicionaAcoesTela();
     }
 
@@ -43,7 +43,7 @@ public class ControllerComanda extends Controller{
     }
     
     /**
-     * Adiciona as aÃ§Ãµes na tela
+     * Adiciona as ações na tela
      */
     private void adicionaAcoesTela() {
         this.adicionaAcaoAddItem();
@@ -52,7 +52,7 @@ public class ControllerComanda extends Controller{
     }
     
     /**
-     * Adiciona a aÃ§Ã£o de adicionar o item
+     * Adiciona a ação de adicionar o item
      */
     private void adicionaAcaoAddItem() {
         this.getInstanceView().adicionaAcaoAddItem(new ActionListener() {
@@ -65,7 +65,7 @@ public class ControllerComanda extends Controller{
                     getInstanceView().showMensagem("Selecione um item!");
                 }
                 else if(quantidade <= 0) {
-                    getInstanceView().showMensagem("Informe uma quantidade vÃ¡lida!");
+                    getInstanceView().showMensagem("Informe uma quantidade válida!");
                 } else {
                     Item item = ControllerItem.getInstance().getItens().getLista().get(indice);
                     ComandaItem comandaItem = new ComandaItem();
@@ -82,7 +82,7 @@ public class ControllerComanda extends Controller{
     }
     
     /**
-     * Adiciona a aÃ§Ã£o para remover o item
+     * Adiciona a ação para remover o item
      */
     private void adicionaAcaoRemoveItem() {
         this.getInstanceView().adicionaAcaoRemoveItem(new ActionListener() {
@@ -91,7 +91,7 @@ public class ControllerComanda extends Controller{
                 int indice = getInstanceView().getListaItens().getSelectedIndex();
                 
                 if (indice < 0) {
-                    getInstanceView().showMensagem("Selecione um item da solicitaÃ§Ã£o!");
+                    getInstanceView().showMensagem("Selecione um item da solicitação!");
                 }
                 else {
                     getInstanceView().getTableModelComandaItem().remove(indice);
@@ -101,7 +101,7 @@ public class ControllerComanda extends Controller{
     }
     
     /**
-     * Adiciona a aÃ§Ã£o de cadastrar a comanda
+     * Adiciona a ação de cadastrar a comanda
      */
     private void adicionaAcaoCadastrar() {
         this.getInstanceView().adicionaAcaoCadastrar(new ActionListener() {

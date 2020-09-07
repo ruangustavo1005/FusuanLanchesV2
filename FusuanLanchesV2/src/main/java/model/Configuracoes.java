@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Modelo das configuraÃ§Ãµes do sistema.
+ * Modelo das configurações do sistema.
  * @author Ruan
  */
 public class Configuracoes {

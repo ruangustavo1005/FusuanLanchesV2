@@ -1,7 +1,7 @@
 package util;
 
 /**
- * Classe de funÃ§Ãµes (in)Ãºteis para trabalhar com nÃºmeros
+ * Classe de funções (in)úteis para trabalhar com números
  * @author Ruan
  */
 public class NumberUtils {

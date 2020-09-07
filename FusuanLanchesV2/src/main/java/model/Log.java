@@ -1,12 +1,28 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Modelo de logs do sistema
  * @author Ruan
  */
+@Entity
+@Table(name = "tblog")
 public class Log {
     
+    static public final int TIPO_SUCESSO = 1,
+                            TIPO_ERRO    = 2,
+                            TIPO_ALERTA  = 3;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int     codigo;
+    @ManyToOne
     private Usuario usuario;
     private int     tipo;
     private String  comando;
@@ -17,7 +33,8 @@ public class Log {
         
     }
 
-    public Log(Usuario usuario, int tipo, String comando, String data, boolean sucesso) {
+    public Log(int codigo, Usuario usuario, int tipo, String comando, String data, boolean sucesso) {
+        this.codigo = codigo;
         this.usuario = usuario;
         this.tipo = tipo;
         this.comando = comando;
@@ -25,6 +42,14 @@ public class Log {
         this.sucesso = sucesso;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
     public Usuario getUsuario() {
         return usuario;
     }
@@ -67,7 +92,7 @@ public class Log {
 
     @Override
     public String toString() {
-        return "Log: Tipo: " + tipo + ", Data: " + data + ", Comando: " + comando;
+        return "Log(" + this.codigo + "): Tipo: " + tipo + ", Data: " + data + ", Comando: " + comando;
     }
     
 }
