@@ -61,10 +61,6 @@ public class ControllerLogin extends Controller {
                     else if (usuario.isCliente()) {
                         getInstanceView().showMensagem("Seu usuário não pode utilizar o sistema ainda! Aguarde por novas atualizações!");
                     }
-//                    Precisa tirar esse else, tá deixando aqui pra funcionar o login 123/123
-                    else {
-                        ControllerMenu.getInstance().montaTela();
-                    }
                     
                     getInstanceView().dispose();
                 }
