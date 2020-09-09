@@ -109,7 +109,7 @@ public class ControllerComanda extends Controller{
             public void actionPerformed(ActionEvent ae) {
                 Comanda comanda = getInstanceView().getModelFromTela();
                 if(salvar(comanda)){
-                    getInstanceView().showMensagem("Comanda incluÃ­da com sucesso!");
+                    getInstanceView().showMensagem("Comanda incluída com sucesso!");
                     ControllerMenu.getInstance().atualizarConsultaComanda(comanda);
                     getInstanceView().dispose();
                 } else {
@@ -127,6 +127,9 @@ public class ControllerComanda extends Controller{
             getInstanceView().setModelTela();
             getInstanceView().habilitaCampos(false);
             this.comanda = null;
+        }
+        else {
+            getInstanceView().habilitaCampos(true);
         }
         super.montaTela();
     }
@@ -162,10 +165,9 @@ public class ControllerComanda extends Controller{
     }
     
     /**
-     * Retorna se foi possÃ­vel salvar 
+     * Retorna se foi possível salvar 
      */
     private boolean salvar(Comanda comanda) { 
-        comanda.setNumero(this.comandas.getLista().size() + 1);
         comanda.setAberto(true);
         comanda.getItens().forEach(comandaItem -> {
             comandaItem.setComanda(comanda);

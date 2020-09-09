@@ -56,12 +56,12 @@ public class ViewConsultaSolicitacaoAbastecimento extends View {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta de solicitaÃ§Ãµes de abastecimento");
+        setTitle("Consulta de solicitações de abastecimento");
 
         tbSolocitacaoAbastecimento.setModel(tableModel);
         jScrollPane1.setViewportView(tbSolocitacaoAbastecimento);
 
-        jLabel1.setText("* Duplo clique sobre o registro para mais informaÃ§Ãµes");
+        jLabel1.setText("* Duplo clique sobre o registro para mais informações");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

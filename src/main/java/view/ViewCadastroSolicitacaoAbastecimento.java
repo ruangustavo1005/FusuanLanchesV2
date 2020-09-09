@@ -138,7 +138,7 @@ public class ViewCadastroSolicitacaoAbastecimento extends View {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nova solicita√ß√£o de abastecimento");
+        setTitle("Nova solicitaÁ„o de abastecimento");
 
         tbItens.setModel(tableModelItens);
         jScrollPane1.setViewportView(tbItens);
@@ -154,7 +154,7 @@ public class ViewCadastroSolicitacaoAbastecimento extends View {
 
         btnFinalizar.setText("Finalizar");
 
-        jLabel3.setText("Gerente respons√°vel:");
+        jLabel3.setText("Gerente respons·vel:");
 
         jLabel1.setText("Fornecedor:");
 
@@ -205,7 +205,7 @@ public class ViewCadastroSolicitacaoAbastecimento extends View {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel6.setText("Itens dispon√≠veis:");
+        jLabel6.setText("Itens disponÌveis:");
 
         jLabel7.setText("Itens adicionados:");
 

@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +35,7 @@ public class SolicitacaoAbastecimento implements ListagemParcial {
     private Gerente                 gerente;
     @ManyToOne
     private Fornecedor              fornecedor;
-    @OneToMany(mappedBy = "solicitacaoAbastecimento", targetEntity = AbastecimentoItem.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "solicitacaoAbastecimento", cascade = CascadeType.ALL)
     private List<AbastecimentoItem> itens;
     private String                  data;
     private String                  dataLimite;

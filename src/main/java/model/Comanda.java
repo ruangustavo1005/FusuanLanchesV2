@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +27,7 @@ public class Comanda implements ListagemParcial {
     private Atendente              atendente;
     @ManyToOne
     private Cliente                cliente;
-    @OneToMany(mappedBy = "comanda", targetEntity = ComandaItem.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL)
     private List<ComandaItem> itens;
     private String                 data;
     private int                    mesa;
@@ -112,6 +111,7 @@ public class Comanda implements ListagemParcial {
     public ArrayList<String> getCamposIgnorar() {
         ArrayList<String> campos = new ArrayList<>();
         campos.add("aberto");
+        campos.add("itens");
         return campos;
     }
     

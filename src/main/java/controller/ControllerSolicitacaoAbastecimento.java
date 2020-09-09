@@ -79,7 +79,7 @@ public class ControllerSolicitacaoAbastecimento extends Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (salvar(getInstanceView().getModelFromTela())) {
-                    getInstanceView().showMensagem("Solicitação de Abastecimento incluÃ­da com sucesso!");
+                    getInstanceView().showMensagem("Solicitação de Abastecimento incluída com sucesso!");
                     getInstanceView().dispose();
                 }
                 else {
@@ -106,12 +106,11 @@ public class ControllerSolicitacaoAbastecimento extends Controller {
     }
     
     private boolean salvar(SolicitacaoAbastecimento solicitacaoAbastecimentoNova) {
-        solicitacaoAbastecimentoNova.setNumero(this.dao.getLista().size() + 1);
         solicitacaoAbastecimentoNova.setSituacao(SolicitacaoAbastecimento.getListaSituacoes().get(SolicitacaoAbastecimento.SITUACAO_ABERTA));
 
-        for (AbastecimentoItem abastecimentoItem : solicitacaoAbastecimentoNova.getItens()) {
+        solicitacaoAbastecimentoNova.getItens().forEach(abastecimentoItem -> {
             abastecimentoItem.setSolicitacaoAbastecimento(solicitacaoAbastecimentoNova);
-        }
+        });
 
         return this.dao.add(solicitacaoAbastecimentoNova);
     }

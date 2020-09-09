@@ -18,7 +18,6 @@ public class ControllerConsultaSolicitacaoAbastecimento extends Controller {
     private static ControllerConsultaSolicitacaoAbastecimento instance;
 
     private ControllerConsultaSolicitacaoAbastecimento() {
-        this.setDadosTableModel();
         this.adicionaAcaoDuploCliqueRegistro();
     }
 
@@ -74,6 +73,12 @@ public class ControllerConsultaSolicitacaoAbastecimento extends Controller {
     @Override
     protected ViewConsultaSolicitacaoAbastecimento getInstanceView() {
         return ViewConsultaSolicitacaoAbastecimento.getInstance();
+    }
+
+    @Override
+    public void montaTela() {
+        this.setDadosTableModel();
+        super.montaTela();
     }
     
 }
