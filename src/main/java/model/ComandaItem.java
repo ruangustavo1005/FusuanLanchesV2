@@ -1,15 +1,26 @@
 package model;
 
 import interfaces.ListagemParcial;
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Modelo de relacionamento de item x comanda
  * @author Ruan
  */
-public class ComandaItem implements ListagemParcial {
+@Entity
+@Table(name = "tbcomandaitem")
+public class ComandaItem implements ListagemParcial, Serializable {
     
+    @Id
+    @ManyToOne
     private Item    item;
+    @Id
+    @ManyToOne
     private Comanda comanda;
     private int     quantidade;
     
@@ -56,7 +67,7 @@ public class ComandaItem implements ListagemParcial {
 //    public float getValor() {
 //        return valor;
 //    }
-//
+
 //    public void setValor(float valor) {
 //        this.valor = valor;
 //    }

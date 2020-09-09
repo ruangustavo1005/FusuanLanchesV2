@@ -2,11 +2,15 @@ package model;
 
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,7 +28,8 @@ public class Comanda implements ListagemParcial {
     private Atendente              atendente;
     @ManyToOne
     private Cliente                cliente;
-    private ArrayList<ComandaItem> itens;
+    @OneToMany(mappedBy = "comanda", targetEntity = ComandaItem.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ComandaItem> itens;
     private String                 data;
     private int                    mesa;
     private boolean                aberto;
@@ -66,11 +71,11 @@ public class Comanda implements ListagemParcial {
         this.cliente = cliente;
     }
 
-    public ArrayList<ComandaItem>getItens() {
+    public List<ComandaItem>getItens() {
         return itens;
     }
 
-    public void setItens(ArrayList<ComandaItem> itens) {
+    public void setItens(List<ComandaItem> itens) {
         this.itens = itens;
     }
 

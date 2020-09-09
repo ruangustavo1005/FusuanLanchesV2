@@ -1,15 +1,26 @@
 package model;
 
 import interfaces.ListagemParcial;
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Modelo de relacionamento soclitação de abastecimento x item
  * @author Ruan
  */
-public class AbastecimentoItem implements ListagemParcial {
+@Entity
+@Table(name = "tbabastecimentoitem")
+public class AbastecimentoItem implements ListagemParcial, Serializable {
     
+    @Id
+    @ManyToOne
     private Item                     item;
+    @Id
+    @ManyToOne
     private SolicitacaoAbastecimento solicitacaoAbastecimento;
     private int                      quantidade;
 

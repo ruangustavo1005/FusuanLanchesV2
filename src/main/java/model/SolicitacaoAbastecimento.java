@@ -3,12 +3,17 @@ package model;
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import util.Lista;
 
 /**
@@ -26,15 +31,17 @@ public class SolicitacaoAbastecimento implements ListagemParcial {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int                          numero;
+    private int                     numero;
     @ManyToOne
-    private Gerente                      gerente;
+    private Gerente                 gerente;
     @ManyToOne
-    private Fornecedor                   fornecedor;
-    private ArrayList<AbastecimentoItem> itens;
-    private String                       data;
-    private String                       dataLimite;
-    private Lista                        situacao;
+    private Fornecedor              fornecedor;
+    @OneToMany(mappedBy = "solicitacaoAbastecimento", targetEntity = AbastecimentoItem.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<AbastecimentoItem> itens;
+    private String                  data;
+    private String                  dataLimite;
+    @Transient
+    private Lista                   situacao;
     
     public SolicitacaoAbastecimento() {
         this.gerente    = new Gerente();
@@ -67,11 +74,11 @@ public class SolicitacaoAbastecimento implements ListagemParcial {
         this.fornecedor = fornecedor;
     }
 
-    public ArrayList<AbastecimentoItem> getItens() {
+    public List<AbastecimentoItem> getItens() {
         return itens;
     }
 
-    public void setItens(ArrayList<AbastecimentoItem> itens) {
+    public void setItens(List<AbastecimentoItem> itens) {
         this.itens = itens;
     }
 

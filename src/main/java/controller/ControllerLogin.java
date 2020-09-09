@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Usuario;
 import util.MD5;
+import view.ViewIndex;
 import view.ViewLogin;
 
 /**
@@ -88,6 +89,9 @@ public class ControllerLogin extends Controller {
     }
 
     public static void setUsuarioLogado(Usuario usuarioLogado) {
+        if (usuarioLogado != null) {
+            ViewIndex.getInstance().setUsuarioTela(usuarioLogado.getPessoa().getNome());
+        }
         ControllerLogin.usuarioLogado = usuarioLogado;
     }
 

@@ -4,6 +4,7 @@ import interfaces.ListagemParcial;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import util.StringUtils;
 
@@ -12,9 +13,9 @@ import util.StringUtils;
  */
 public class TableModelPadrao<Type> extends AbstractTableModel {
     
-    protected ArrayList<Type>   modelos;
+    protected List<Type>   modelos;
     protected Type              modelo;
-    protected ArrayList<String> atributos;
+    protected List<String> atributos;
 
     public TableModelPadrao(Type modelo) {
         this.modelo  = modelo;
@@ -40,11 +41,11 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
         }
     }
     
-    public ArrayList<Type> getModelos() {
+    public List<Type> getModelos() {
         return this.modelos;
     }
 
-    public void setModelos(ArrayList<Type> modelos) {
+    public void setModelos(List<Type> modelos) {
         this.modelos = modelos;
     }
 

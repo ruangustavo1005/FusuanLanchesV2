@@ -16,7 +16,6 @@ public class ControllerMenu extends Controller {
     
     private ControllerMenu() {
         this.adicionaAcoesTela();
-        this.defineUsuarioLogadoTela();
     }
 
     public static ControllerMenu getInstance() {
@@ -35,10 +34,6 @@ public class ControllerMenu extends Controller {
     
     public void atualizarConsultaComanda(Comanda comanda) {
         getInstanceView().getTableModelComanda().add(comanda);
-    }
-    
-    private void defineUsuarioLogadoTela() {
-        this.getInstanceView().setUsuarioTela(ControllerLogin.getUsuarioLogado().getLogin());
     }
     
     /**
