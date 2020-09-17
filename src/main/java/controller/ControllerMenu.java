@@ -194,7 +194,8 @@ public class ControllerMenu extends Controller {
                     getInstanceView().showMensagem("Selecione uma comanda!");
                 }
                 else {
-                    getInstanceView().getTableModelComanda().remove(indice);
+                    Comanda comanda = getInstanceView().getTableModelComanda().get(indice);
+                    ControllerComanda.getInstance().removerComanda(comanda);
                 }
             }
         });
@@ -212,7 +213,8 @@ public class ControllerMenu extends Controller {
                     view.showMensagem("Selecione uma comanda para fechar!");
                 }
                 else if (JOptionPane.showConfirmDialog(view, "Deseja fechar a comanda selecionada?") == JOptionPane.YES_OPTION) {
-                    ControllerComanda.getInstance().getComanda(indiceSelecionado).setAberto(false);
+                    Comanda comanda = view.getTableModelComanda().get(indiceSelecionado);
+                    ControllerComanda.getInstance().fechaComanda(comanda);
                     view.getTableModelComanda().remove(indiceSelecionado);
                 }
             }
@@ -227,7 +229,7 @@ public class ControllerMenu extends Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 getInstanceView().dispose();
-                ControllerLogin.getInstance().setUsuarioLogado(null);
+                ControllerLogin.setUsuarioLogado(null);
                 ControllerLogin.getInstance().montaTela();
             }
         });
