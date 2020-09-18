@@ -16,4 +16,13 @@ public class NumberUtils {
         return (float) (replace.equals("") ? 0.0 : Float.parseFloat(replace));
     }
     
+    public static String formataValor(float valor) {
+        return formataValor(valor, 2);
+    }
+    
+    public static String formataValor(float valor, int decimais) {
+        String retorno = String.valueOf(((int) (valor * (Math.pow(10, decimais)))) / (Math.pow(10, decimais))).replace(".", ",");
+        return retorno;
+    }
+    
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import model.Comanda;
 import model.ComandaItem;
 import model.Item;
+import util.NumberUtils;
 import view.ViewCadastroComanda;
 
 /**
@@ -76,15 +77,16 @@ public class ControllerComanda extends Controller{
                 else if(quantidade <= 0) {
                     getInstanceView().showMensagem("Informe uma quantidade válida!");
                 } else {
-                    Item item = ControllerItem.getInstance().getItens().get().get(indice);
+                    Item item = (Item) getInstanceView().getListaItens().getSelectedItem();
                     ComandaItem comandaItem = new ComandaItem();
                     comandaItem.setItem(item);
                     comandaItem.setQuantidade(quantidade);
                     comandaItem.setComanda(new Comanda());
-//                    comandaItem.setValor(item.getValor()); 
 
                     getInstanceView().getTableModelComandaItem().getModelos().add(comandaItem);
                     getInstanceView().getTableModelComandaItem().fireTableRowsInserted(indice, indice);
+                    
+                    getInstanceView().setTotal(Comanda.getValorFinal(getInstanceView().getTableModelComandaItem().getModelos()));
                 }
             }
         });
@@ -104,6 +106,7 @@ public class ControllerComanda extends Controller{
                 }
                 else {
                     getInstanceView().getTableModelComandaItem().remove(indice);
+                    getInstanceView().setTotal(Comanda.getValorFinal(getInstanceView().getTableModelComandaItem().getModelos()));
                 }
             }
         });
@@ -118,7 +121,7 @@ public class ControllerComanda extends Controller{
             public void actionPerformed(ActionEvent ae) {
                 Comanda comanda = getInstanceView().getModelFromTela();
                 if(salvar(comanda)){
-                    getInstanceView().showMensagem("Comanda incluída com sucesso!");
+                    getInstanceView().showMensagem("Comanda incluída com sucesso! Valor Final: R$ " + NumberUtils.formataValor(comanda.getValorFinal()));
                     ControllerMenu.getInstance().atualizarConsultaComanda(comanda);
                     getInstanceView().dispose();
                 } else {
@@ -135,6 +138,7 @@ public class ControllerComanda extends Controller{
             getInstanceView().setComanda(this.comanda); 
             getInstanceView().setModelTela();
             getInstanceView().habilitaCampos(false);
+            getInstanceView().setTotal(comanda.getValorFinal());
             this.comanda = null;
         }
         else {

@@ -14,8 +14,8 @@ import util.DateUtils;
  */
 public class Dao<Type> {
     
-    private final EntityManagerFactory emf;
-    private final EntityManager em;
+    protected final EntityManagerFactory emf;
+    protected final EntityManager em;
 
     private final Class<Type> classe;
 
@@ -31,7 +31,7 @@ public class Dao<Type> {
             lista = (ArrayList<Type>) em.createQuery("from " + this.classe.getName()).getResultList();
         }
         catch (Exception e) {
-            Dao.loga("select all", e.getMessage());
+            Dao.loga("select all", e);
             System.out.println(e.getMessage());
         }
         return lista;
@@ -45,7 +45,7 @@ public class Dao<Type> {
             this.commit();
         }
         catch (Exception e) {
-            Dao.loga("insert", e.getMessage());
+            Dao.loga("insert", e);
             System.out.println(e.getMessage());
             retorno = false;
             if (em.getTransaction().isActive()) {
@@ -67,7 +67,7 @@ public class Dao<Type> {
             this.commit();
         }
         catch (Exception e) {
-            Dao.loga("delete", e.getMessage());
+            Dao.loga("delete", e);
             System.out.println(e.getMessage());
             retorno = false;
             if (em.getTransaction().isActive()) {
@@ -85,7 +85,7 @@ public class Dao<Type> {
             this.commit();
         }
         catch (Exception e) {
-            this.loga("update", e.getMessage());
+            this.loga("update", e);
             System.out.println(e.getMessage());
             retorno = false;
             if (em.getTransaction().isActive()) {
@@ -101,14 +101,14 @@ public class Dao<Type> {
             object = em.find(this.classe, id);
         }
         catch (Exception e) {
-            Dao.loga("select", e.getMessage());
+            Dao.loga("select", e);
             System.out.println(e.getMessage());
         }
         return object;
     }
     
-    static public boolean loga(String operacao, String descricao) {
-        return (new Dao<>(Log.class)).add(new Log(ControllerLogin.getUsuarioLogado(), Log.TIPO_ERRO, operacao, descricao, DateUtils.nowComplete(), false));
+    static public boolean loga(String operacao, Exception e) {
+        return (new Dao<>(Log.class)).add(new Log(ControllerLogin.getUsuarioLogado(), Log.TIPO_ERRO, operacao, e.getCause().toString()  , DateUtils.nowComplete(), false));
     }
     
     protected final void begin() {
