@@ -26,7 +26,7 @@ public class ControllerAtendente extends ControllerPessoa {
     }
     
     public ArrayList<Atendente> listarAtendentes() {
-        return this.atendentes.getLista();
+        return this.atendentes.get();
     }
 
     public Dao<Atendente> getAtendentes() {

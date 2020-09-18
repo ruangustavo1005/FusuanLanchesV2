@@ -26,7 +26,7 @@ public class ControllerCliente extends ControllerPessoa {
     }
     
     public ArrayList<Cliente> listarClientes(){
-        return this.clientes.getLista();
+        return this.clientes.get();
     }
 
     public Dao<Cliente> getClientes() {

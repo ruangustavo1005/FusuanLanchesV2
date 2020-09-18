@@ -26,7 +26,7 @@ public class ControllerGerente extends ControllerPessoa {
     }
     
     public ArrayList<Gerente> listarGerentes() {
-        return this.gerentes.getLista();
+        return this.gerentes.get();
     }
 
     public Dao<Gerente> getGerentes() {

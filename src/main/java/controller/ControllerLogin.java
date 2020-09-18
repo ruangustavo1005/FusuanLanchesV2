@@ -3,7 +3,6 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Usuario;
-import util.MD5;
 import view.ViewIndex;
 import view.ViewLogin;
 

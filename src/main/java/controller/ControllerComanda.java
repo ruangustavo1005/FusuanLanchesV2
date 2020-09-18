@@ -51,6 +51,15 @@ public class ControllerComanda extends Controller{
         this.adicionaAcaoCadastrar();
     }
     
+    public boolean removerComanda(Comanda comanda) {
+        return this.comandas.remove(comanda);
+    }
+    
+    public boolean fechaComanda(Comanda comanda) {
+        comanda.fecha();
+        return this.comandas.update(comanda);
+    }
+    
     /**
      * Adiciona a ação de adicionar o item
      */
@@ -67,7 +76,7 @@ public class ControllerComanda extends Controller{
                 else if(quantidade <= 0) {
                     getInstanceView().showMensagem("Informe uma quantidade válida!");
                 } else {
-                    Item item = ControllerItem.getInstance().getItens().getLista().get(indice);
+                    Item item = ControllerItem.getInstance().getItens().get().get(indice);
                     ComandaItem comandaItem = new ComandaItem();
                     comandaItem.setItem(item);
                     comandaItem.setQuantidade(quantidade);
@@ -176,12 +185,12 @@ public class ControllerComanda extends Controller{
     }
     
     public ArrayList<Comanda> listar() {
-        return this.comandas.getLista();
+        return this.comandas.get();
     }
     
     public ArrayList<Comanda> listarAbertas() {
         ArrayList<Comanda> abertas = new ArrayList<>();
-        for (Comanda comanda : this.comandas.getLista()) {
+        for (Comanda comanda : this.comandas.get()) {
             if (comanda.getAberto()) {
                 abertas.add(comanda);
             }

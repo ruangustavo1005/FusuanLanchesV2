@@ -26,6 +26,7 @@ public class Log {
     private Usuario usuario;
     private int     tipo;
     private String  comando;
+    private String  descricao;
     private String  data;
     private boolean sucesso;
 
@@ -33,11 +34,11 @@ public class Log {
         
     }
 
-    public Log(int codigo, Usuario usuario, int tipo, String comando, String data, boolean sucesso) {
-        this.codigo = codigo;
+    public Log(Usuario usuario, int tipo, String comando, String decricao, String data, boolean sucesso) {
         this.usuario = usuario;
         this.tipo = tipo;
         this.comando = comando;
+        this.descricao = decricao;
         this.data = data;
         this.sucesso = sucesso;
     }
@@ -74,6 +75,14 @@ public class Log {
         this.comando = comando;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public String getData() {
         return data;
     }
@@ -92,7 +101,7 @@ public class Log {
 
     @Override
     public String toString() {
-        return "Log(" + this.codigo + "): Tipo: " + tipo + ", Data: " + data + ", Comando: " + comando;
+        return "Log(" + this.codigo + "): Tipo: " + tipo + ", Data: " + data + ", Comando: " + comando + ", Descrição: " + descricao;
     }
     
 }

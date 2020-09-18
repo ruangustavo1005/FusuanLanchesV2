@@ -134,7 +134,7 @@ public class ControllerUsuario extends Controller {
     }
     
     public ArrayList<Usuario> listar() {
-        return this.usuarios.getLista();
+        return this.usuarios.get();
     }
 
     public Dao<Usuario> getUsuarios() {

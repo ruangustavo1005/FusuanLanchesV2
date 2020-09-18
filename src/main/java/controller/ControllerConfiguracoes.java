@@ -37,7 +37,7 @@ public class ControllerConfiguracoes extends Controller {
     @Override
     protected ViewConfiguracoes getInstanceView() {
         ViewConfiguracoes view = ViewConfiguracoes.getInstance();
-        ArrayList<Configuracoes> configuracoes = this.configuracoes.getLista();
+        ArrayList<Configuracoes> configuracoes = this.configuracoes.get();
         if (configuracoes.size() > 0) {
             ViewConfiguracoes.getInstance().setConfiguracoes(configuracoes.get(0));
             ViewConfiguracoes.getInstance().setModelTela();

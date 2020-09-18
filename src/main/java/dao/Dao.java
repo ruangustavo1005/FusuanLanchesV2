@@ -1,9 +1,12 @@
 package dao;
 
+import controller.ControllerLogin;
 import java.util.ArrayList;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import model.Log;
+import util.DateUtils;
 
 /**
  *
@@ -22,15 +25,13 @@ public class Dao<Type> {
         em  = emf.createEntityManager();
     }
     
-    /**
-     * @todo Trocar o nome do metodo para "get"
-     */
-    public ArrayList<Type> getLista() {
+    public ArrayList<Type> get() {
         ArrayList<Type> lista = null;
         try {
             lista = (ArrayList<Type>) em.createQuery("from " + this.classe.getName()).getResultList();
         }
         catch (Exception e) {
+            Dao.loga("select all", e.getMessage());
             System.out.println(e.getMessage());
         }
         return lista;
@@ -43,7 +44,8 @@ public class Dao<Type> {
             em.persist(object);
             this.commit();
         }
-        catch (Exception e) { // seria daora fazer um log disso, acessível apenas pelo admin
+        catch (Exception e) {
+            Dao.loga("insert", e.getMessage());
             System.out.println(e.getMessage());
             retorno = false;
             if (em.getTransaction().isActive()) {
@@ -64,7 +66,8 @@ public class Dao<Type> {
             em.remove(object);
             this.commit();
         }
-        catch (Exception e) { // seria daora fazer um log disso, acessível apenas pelo admin
+        catch (Exception e) {
+            Dao.loga("delete", e.getMessage());
             System.out.println(e.getMessage());
             retorno = false;
             if (em.getTransaction().isActive()) {
@@ -81,7 +84,8 @@ public class Dao<Type> {
             em.merge(object);
             this.commit();
         }
-        catch (Exception e) { // seria daora fazer um log disso, acessível apenas pelo admin
+        catch (Exception e) {
+            this.loga("update", e.getMessage());
             System.out.println(e.getMessage());
             retorno = false;
             if (em.getTransaction().isActive()) {
@@ -97,9 +101,14 @@ public class Dao<Type> {
             object = em.find(this.classe, id);
         }
         catch (Exception e) {
+            Dao.loga("select", e.getMessage());
             System.out.println(e.getMessage());
         }
         return object;
+    }
+    
+    static public boolean loga(String operacao, String descricao) {
+        return (new Dao<>(Log.class)).add(new Log(ControllerLogin.getUsuarioLogado(), Log.TIPO_ERRO, operacao, descricao, DateUtils.nowComplete(), false));
     }
     
     protected final void begin() {

@@ -102,6 +102,10 @@ public class Comanda implements ListagemParcial {
         this.aberto = aberto;
     }
     
+    public void fecha() {
+        this.setAberto(false);
+    }
+    
     @Override
     public String toString() {
         return numero + "";

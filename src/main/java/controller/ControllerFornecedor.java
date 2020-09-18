@@ -26,7 +26,7 @@ public class ControllerFornecedor extends ControllerPessoa{
     }
     
     public ArrayList<Fornecedor> listarFornecedores() {
-        return this.fornecedores.getLista();
+        return this.fornecedores.get();
     }
 
     public Dao<Fornecedor> getFornecedores() {

@@ -106,7 +106,7 @@ public class ControllerSolicitacaoAbastecimento extends Controller {
     }
     
     private boolean salvar(SolicitacaoAbastecimento solicitacaoAbastecimentoNova) {
-        solicitacaoAbastecimentoNova.setSituacao(SolicitacaoAbastecimento.getListaSituacoes().get(SolicitacaoAbastecimento.SITUACAO_ABERTA));
+        solicitacaoAbastecimentoNova.setSituacao("Aberta");
 
         solicitacaoAbastecimentoNova.getItens().forEach(abastecimentoItem -> {
             abastecimentoItem.setSolicitacaoAbastecimento(solicitacaoAbastecimentoNova);
@@ -116,7 +116,7 @@ public class ControllerSolicitacaoAbastecimento extends Controller {
     }
 
     public ArrayList<SolicitacaoAbastecimento> listar() {
-        return this.dao.getLista();
+        return this.dao.get();
     }
     
     @Override
