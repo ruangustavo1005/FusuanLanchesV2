@@ -14,7 +14,7 @@ import util.StringUtils;
 public class TableModelPadrao<Type> extends AbstractTableModel {
     
     protected List<Type>   modelos;
-    protected Type              modelo;
+    protected Type         modelo;
     protected List<String> atributos;
 
     public TableModelPadrao(Type modelo) {
@@ -55,6 +55,11 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
         fireTableRowsInserted(i, i);
     }
 
+    public void remove(Type model) {
+        int i = modelos.indexOf(model);
+        this.remove(i);
+    }
+    
     public void remove(int i) {
         modelos.remove(i);
         fireTableRowsDeleted(i, i);
@@ -66,6 +71,10 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
 
     public Type get(int i) {
         return modelos.get(i);
+    }
+
+    public int indexOf(Type model) {
+        return modelos.indexOf(model);
     }
     
     @Override

@@ -130,6 +130,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnNovaComanda" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnEditarItens" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnFechar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnVisualizar" min="-2" max="-2" attributes="0"/>
@@ -171,6 +173,7 @@
                   <Component id="btnRemover" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnVisualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnFechar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEditarItens" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="225" max="-2" attributes="0"/>
@@ -246,6 +249,11 @@
     <Component class="javax.swing.JLabel" name="lbUsuario">
       <Properties>
         <Property name="text" type="java.lang.String" value="user"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEditarItens">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Editar itens"/>
       </Properties>
     </Component>
   </SubComponents>

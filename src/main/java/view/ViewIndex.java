@@ -123,6 +123,10 @@ public class ViewIndex extends View {
         this.imLogout.addActionListener(actionListener);
     }
     
+    public void adicionaAcaoEditarItens(ActionListener actionListener) {
+        this.btnEditarItens.addActionListener(actionListener);
+    }
+    
     public void setUsuarioTela(String usuarioLogado) {
         this.lbUsuario.setText(usuarioLogado);
     }
@@ -147,6 +151,7 @@ public class ViewIndex extends View {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lbUsuario = new javax.swing.JLabel();
+        btnEditarItens = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuCadastros = new javax.swing.JMenu();
         imCadastroUsuario = new javax.swing.JMenuItem();
@@ -191,6 +196,8 @@ public class ViewIndex extends View {
         jLabel1.setText("Usuário:");
 
         lbUsuario.setText("user");
+
+        btnEditarItens.setText("Editar itens");
 
         menuCadastros.setText("Cadastros");
 
@@ -245,6 +252,8 @@ public class ViewIndex extends View {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnNovaComanda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEditarItens)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFechar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnVisualizar)
@@ -277,7 +286,8 @@ public class ViewIndex extends View {
                     .addComponent(btnNovaComanda)
                     .addComponent(btnRemover)
                     .addComponent(btnVisualizar)
-                    .addComponent(btnFechar))
+                    .addComponent(btnFechar)
+                    .addComponent(btnEditarItens))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -296,6 +306,7 @@ public class ViewIndex extends View {
     private TableModelPadrao<Comanda> tableModelComanda;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastroSolicitacaoAbastecimento;
+    private javax.swing.JButton btnEditarItens;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnNovaComanda;
     private javax.swing.JButton btnRemover;
@@ -337,6 +348,14 @@ public class ViewIndex extends View {
     
     public JTable getTbComanda() {
         return tbComanda;
+    }
+    
+    public boolean temComandaSelecionada() {
+        return this.tbComanda.getSelectedRow() != -1;
+    }
+    
+    public Comanda getComandaSelecionada() {
+        return this.tableModelComanda.get(this.tbComanda.getSelectedRow());
     }
     
     /**

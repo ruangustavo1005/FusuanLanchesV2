@@ -54,6 +54,7 @@ public class ControllerMenu extends Controller {
         this.adicionaAcaoRemoverComanda();
         this.adicionaAcaoFecharComanda();
         this.adicionaAcaoLogout();
+        this.adicionaAcaoEditarItens();
     }
     
     /**
@@ -244,6 +245,20 @@ public class ControllerMenu extends Controller {
                 getInstanceView().dispose();
                 ControllerLogin.setUsuarioLogado(null);
                 ControllerLogin.getInstance().montaTela();
+            }
+        });
+    }
+    
+    private void adicionaAcaoEditarItens() {
+        this.getInstanceView().adicionaAcaoEditarItens(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (getInstanceView().temComandaSelecionada()) {
+                    ControllerEditarItensComanda.getInstance(getInstanceView().getComandaSelecionada()).montaTela();
+                }
+                else {
+                    getInstanceView().showMensagem("Selecione uma comanda para editar seus itens!");
+                }
             }
         });
     }
