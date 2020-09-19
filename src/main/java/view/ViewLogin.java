@@ -39,6 +39,10 @@ public class ViewLogin extends View {
         this.btnCadastrar.addActionListener(actionListener);
     }
     
+    public void adicionaAcaoEsqueceuSenha(ActionListener actionListener) {
+        this.btnEsquecerSenha.addActionListener(actionListener);
+    }
+    
     public void showMensagemDadosIncorretos() {
         JOptionPane.showMessageDialog(null, "Login ou senha incorretos!");
     }

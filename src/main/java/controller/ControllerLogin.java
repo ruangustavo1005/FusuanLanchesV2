@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Usuario;
+import util.MD5;
 import view.ViewIndex;
 import view.ViewLogin;
 
@@ -34,6 +35,7 @@ public class ControllerLogin extends Controller {
     private void adicionaAcoesTela() {
         this.adicionaAcaoEntrarTela();
         this.adicionaAcaoCadastroTela();
+        this.adicionaAcaoEsqueceuSenha();
     }
     
     /**
@@ -43,10 +45,10 @@ public class ControllerLogin extends Controller {
         this.getInstanceView().adicionaAcaoBotaoEntrar(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Usuario usuario = getInstanceView().getModelFromTela();
-                        usuario = validaLogin(usuario);
+                Usuario usuarioTela = getInstanceView().getModelFromTela();
+                Usuario usuario = validaLogin(usuarioTela);
                 
-                if (usuario != null) {
+                if (usuario != null && usuarioTela.getSenha().equals(usuario.getSenha())) {
                     setUsuarioLogado(usuario);
                     
                     if (usuario.isGerente()) {
@@ -74,11 +76,35 @@ public class ControllerLogin extends Controller {
     /**
      * Adiciona ação de click de cadastro de usuário
      */
-    private void adicionaAcaoCadastroTela(){
+    private void adicionaAcaoCadastroTela() {
         this.getInstanceView().adicionaAcaoBotaoCadastro(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 ControllerUsuario.getInstance().montaTela();
+            }
+        });
+    }
+    
+    /**
+     * Adiciona ação de esquecimento da senha
+     */
+    private void adicionaAcaoEsqueceuSenha() {
+        this.getInstanceView().adicionaAcaoEsqueceuSenha(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Usuario usuarioTela = getInstanceView().getModelFromTela();
+                if(!usuarioTela.getLogin().isEmpty()) {
+                    Usuario usuario = validaLogin(usuarioTela);
+                    if(usuario != null) {
+                        ControllerEsqueceuSenha.getInstance().setUsuarioOld(usuario);
+                        ControllerEsqueceuSenha.getInstance().montaTela();
+                    } else {
+                        getInstanceView().showMensagem("Usuário não encontrado");
+                    }
+                } else {
+                    getInstanceView().showMensagem("Informe o login!");
+                }
+                
             }
         });
     }
