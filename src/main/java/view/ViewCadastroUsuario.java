@@ -257,6 +257,9 @@ public class ViewCadastroUsuario extends View {
         } else {
             this.txtDataNascimento.setEnabled(false);
             this.txtDataNascimento.setText("");
+            this.txtLogin.setEnabled(false);
+            this.txtSenha.setEnabled(false);
+            this.txtConfirmarSenha.setEnabled(false);
         }
         if (this.cbTipoUsuario.getSelectedIndex() == TIPO_FORNECEDOR) {
             this.txtTelefone.setEnabled(true);

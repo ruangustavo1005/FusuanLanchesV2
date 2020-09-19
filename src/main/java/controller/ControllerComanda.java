@@ -14,7 +14,7 @@ import view.ViewCadastroComanda;
  * Controller da comanda
  * @author Leonardo Alex Fusinato <leonardo.fusinato@edu.udesc.br>
  */
-public class ControllerComanda extends Controller{
+public class ControllerComanda extends Controller {
 
     private static ControllerComanda instance;
     
@@ -190,7 +190,7 @@ public class ControllerComanda extends Controller{
     
     public ArrayList<Comanda> listar() {
         return this.comandas.get();
-    }
+   }
     
     public ArrayList<Comanda> listarAbertas() {
         ArrayList<Comanda> abertas = new ArrayList<>();
@@ -204,6 +204,10 @@ public class ControllerComanda extends Controller{
 
     public Comanda getComanda(int i) {
         return this.comandas.get(i);
+    }
+    
+    public Dao<Comanda> getComandas() {
+        return comandas;
     }
     
 }

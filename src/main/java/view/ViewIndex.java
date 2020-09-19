@@ -75,6 +75,13 @@ public class ViewIndex extends View {
     }
     
     /**
+     * Adiciona a ação de consultar as comandas
+     */
+    public void adicionaAcaoConsultaComandas(ActionListener actionListener){
+        this.imConsultaComanda.addActionListener(actionListener);
+    }
+    
+    /**
      * Adiciona a ação de cadastrar solicitação de abastecimento
      */
     public void adicionaAcaoCadastroSolicitacaoAbastecimento(ActionListener actionListener){
@@ -128,6 +135,7 @@ public class ViewIndex extends View {
         jMenuItem1 = new javax.swing.JMenuItem();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jMenuItem2 = new javax.swing.JMenuItem();
         btnNovaComanda = new javax.swing.JButton();
         btnCadastroSolicitacaoAbastecimento = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -148,6 +156,7 @@ public class ViewIndex extends View {
         imConsultaUsuario = new javax.swing.JMenuItem();
         imConsultarPessoas = new javax.swing.JMenuItem();
         imConsultaSolicitacoesAbastecimento = new javax.swing.JMenuItem();
+        imConsultaComanda = new javax.swing.JMenuItem();
         mnOutros = new javax.swing.JMenu();
         imConfiguracoes = new javax.swing.JMenuItem();
         imLogout = new javax.swing.JMenuItem();
@@ -157,6 +166,8 @@ public class ViewIndex extends View {
         jLabel2.setText("jLabel2");
 
         jButton1.setText("jButton1");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fusuan Lanches");
@@ -205,6 +216,9 @@ public class ViewIndex extends View {
         imConsultaSolicitacoesAbastecimento.setText("Solicitações de abastecimento");
         jMenu2.add(imConsultaSolicitacoesAbastecimento);
 
+        imConsultaComanda.setText("Comandas");
+        jMenu2.add(imConsultaComanda);
+
         jMenuBar1.add(jMenu2);
 
         mnOutros.setText("Outros");
@@ -225,12 +239,10 @@ public class ViewIndex extends View {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btnNovaComanda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnFechar)
@@ -291,6 +303,7 @@ public class ViewIndex extends View {
     private javax.swing.JMenuItem imCadastroItem;
     private javax.swing.JMenuItem imCadastroUsuario;
     private javax.swing.JMenuItem imConfiguracoes;
+    private javax.swing.JMenuItem imConsultaComanda;
     private javax.swing.JMenuItem imConsultaItem;
     private javax.swing.JMenuItem imConsultaSolicitacoesAbastecimento;
     private javax.swing.JMenuItem imConsultaUsuario;
@@ -304,6 +317,7 @@ public class ViewIndex extends View {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lbUsuario;

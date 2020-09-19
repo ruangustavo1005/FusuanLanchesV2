@@ -3,7 +3,6 @@ package model;
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -113,7 +112,7 @@ public class Comanda implements ListagemParcial {
     }
  
     public float getValorFinal() {
-        float valor = 0;
+        float valor = 0;    
         for (ComandaItem item : this.getItens()) {
             valor += item.getQuantidade() * item.getItem().getValor();
         }

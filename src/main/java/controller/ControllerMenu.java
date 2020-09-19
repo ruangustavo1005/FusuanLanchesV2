@@ -7,7 +7,7 @@ import model.Comanda;
 import view.ViewIndex;
 
 /**
- * Controller do index
+ * Controller do index - menu
  * @author Leonardo Alex Fusinato <leonardo.fusinato@edu.udesc.br>
  */
 public class ControllerMenu extends Controller {
@@ -49,6 +49,7 @@ public class ControllerMenu extends Controller {
         this.adicionaAcaoConsultarPessoas();
         this.adicionaAcaoCadastroSolicitacaoAbastecimento();
         this.adicionaAcaoConsultaSolicitacoesAbastecimento();
+        this.adicionaAcaoConsultaComandas();
         this.adicionaAcaoVisualizarComanda();
         this.adicionaAcaoRemoverComanda();
         this.adicionaAcaoFecharComanda();
@@ -159,6 +160,18 @@ public class ControllerMenu extends Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ControllerConsultaSolicitacaoAbastecimento.getInstance().montaTela();
+            }
+        });
+    }
+    
+    /**
+     * Adiciona a ação do botão de consultar as comandas
+     */
+    private void adicionaAcaoConsultaComandas() {
+        this.getInstanceView().adicionaAcaoConsultaComandas(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControllerConsultaComanda.getInstance().montaTela();
             }
         });
     }

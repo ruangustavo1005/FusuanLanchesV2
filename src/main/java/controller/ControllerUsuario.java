@@ -126,7 +126,7 @@ public class ControllerUsuario extends Controller {
             retorno = ControllerAtendente.getInstance().salvarAtendente((Atendente) usuario.getPessoa());
         }
         
-        if (retorno) {
+        if (retorno && !usuario.isCliente()) {
             retorno = this.usuarios.add(usuario);
         }
         

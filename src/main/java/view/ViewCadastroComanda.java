@@ -1,7 +1,10 @@
 package view;
 
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JComboBox;
 import model.Atendente;
 import model.Cliente;
@@ -11,7 +14,7 @@ import model.Item;
 import util.NumberUtils;
 
 /**
- * View da comanda
+ * View de cadastro comanda
  *
  * @author Leonardo Alex Fusinato <leonardo.fusinato@edu.udesc.br>
  */
@@ -33,6 +36,13 @@ public class ViewCadastroComanda extends View {
     private void formataCampos() {
         this.formataCampo(txtMesa,   "###",      '0');
         this.formataCampo(txtData,   CAMPO_DATA, '0');
+        txtData.setText(this.getDataAtual());
+    }
+    
+    private String getDataAtual() {
+	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	Date date = new Date();
+	return dateFormat.format(date);
     }
     
     @Override

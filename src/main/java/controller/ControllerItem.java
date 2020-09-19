@@ -70,7 +70,7 @@ public class ControllerItem extends Controller {
     
     public ArrayList<Item> listar() {
         return this.itens.get();
-    }
+    }   
 
     public Dao<Item> getItens() {
         return itens;

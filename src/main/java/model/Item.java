@@ -80,7 +80,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return nome + " - (" + codigo + ")";
+        return "(" + codigo + ") - " +nome;
     }
     
 }
