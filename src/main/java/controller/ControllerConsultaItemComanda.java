@@ -1,10 +1,6 @@
 package controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 import model.Comanda;
-import model.ComandaItem;
 import view.ViewConsultaItemComanda;
 
 /**
@@ -44,42 +40,7 @@ public class ControllerConsultaItemComanda extends Controller {
     @Override
     public void montaTela() {
         this.getInstanceView().setDadosTableModel(ControllerItemComanda.getInstance().listar(this.getComanda()));
-        this.adicionaAcoesTela();
         super.montaTela();
-    }
-    
-    private void adicionaAcoesTela() {
-        this.adicionaAcaoAdicionarItemComanda();
-        this.adicionaAcaoRemoverItemComanda();
-    }
-    
-    private void adicionaAcaoRemoverItemComanda() {
-        this.getInstanceView().adicionaAcaoRemover(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int indice = getInstanceView().getTable().getSelectedRow();
-                ComandaItem comandaItem = getInstanceView().getTableModel().get(indice);
-                if (JOptionPane.showConfirmDialog(getInstanceView(), "Deseja remover o item \"" + comandaItem.getItem().getCodigo()+ "\"?") == JOptionPane.YES_OPTION) {
-                    if(indice >= 0) {
-                        if (ControllerItemComanda.getInstance().getItensComanda().remove(comandaItem)) {
-                            getInstanceView().getTableModel().remove(indice);
-                            getInstanceView().showMensagem("Item da comanda removido com sucesso!");
-                        }
-                    } else {
-                        getInstanceView().showMensagem("Selecione um item para remover!");
-                    }
-                }
-            }
-        });
-    }
-    
-    private void adicionaAcaoAdicionarItemComanda() {
-        this.getInstanceView().adicionaAcaoAdicionarItem(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ControllerItemComanda.getInstance().montaTela();
-            }
-        });
     }
     
 }

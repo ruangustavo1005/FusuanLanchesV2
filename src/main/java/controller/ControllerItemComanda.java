@@ -4,7 +4,7 @@ import dao.DaoComandaItem;
 import java.util.ArrayList;
 import model.Comanda;
 import model.ComandaItem;
-import view.ViewCadastroComandaItem;
+import view.ViewCadastroItem;
 
 /**
  * Controller dos itens da comanda
@@ -19,8 +19,8 @@ public class ControllerItemComanda extends Controller {
     private DaoComandaItem itensComanda;
 
     @Override
-    protected ViewCadastroComandaItem getInstanceView() {
-        return ViewCadastroComandaItem.getInstance();
+    protected ViewCadastroItem getInstanceView() {
+        return ViewCadastroItem.getInstance();
     }
     
     public static ControllerItemComanda getInstance() {
