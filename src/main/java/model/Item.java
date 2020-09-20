@@ -1,5 +1,7 @@
 package model;
 
+import interfaces.ListagemMaqueada;
+import java.util.HashMap;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,15 +10,13 @@ import javax.persistence.Table;
 
 
 /**
- * Modelo de item (comida, bebeida, etc.)
+ * Modelo de item (comida, bebida, etc.)
  * @author Ruan
- * @todo poderia ter um relaciomamento direto com os fornecedores, pra salvar quais fornecedores vendem tal produto
- *       assim podia facilitar o processo de solicitação de abastecimento
  */
 
 @Entity
 @Table(name="tbitem")
-public class Item {
+public class Item implements ListagemMaqueada {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -81,6 +81,13 @@ public class Item {
     @Override
     public String toString() {
         return "(" + codigo + ") - " +nome;
+    }
+    
+    @Override
+    public HashMap<String, String> getTitulosColunas() {
+        HashMap<String, String> titulos = new HashMap<>();
+        titulos.put("codigo", "Código");
+        return titulos;
     }
     
 }

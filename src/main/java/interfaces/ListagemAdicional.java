@@ -1,6 +1,6 @@
 package interfaces;
 
-import java.util.ArrayList;
+import java.util.List;
 import model.ComandaItem;
 
 /**
@@ -13,6 +13,6 @@ public interface ListagemAdicional {
      * Array com o nome dos métodos que demonstrarão dados adicionais na consulta
      * @see ComandaItem
      */
-    public ArrayList<String> getCamposAdicionar();
+    public List<String> getCamposAdicionar();
     
 }

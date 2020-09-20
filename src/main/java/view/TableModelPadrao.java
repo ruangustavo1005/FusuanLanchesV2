@@ -1,6 +1,7 @@
 package view;
 
 import interfaces.ListagemAdicional;
+import interfaces.ListagemMaqueada;
 import interfaces.ListagemParcial;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -111,10 +112,14 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         return this.getAtributo(this.modelos.get(rowIndex), columnIndex);
     }
-
+    
     @Override
     public String getColumnName(int column) {
-        return StringUtils.ucfirst(this.getNomeAtributo(column));
+        String nome = StringUtils.ucfirst(this.getNomeAtributo(column));
+        if (modelo instanceof ListagemMaqueada) {
+            nome = ((ListagemMaqueada) modelo).getTitulosColunas().getOrDefault(this.getNomeAtributo(column), nome);
+        }
+        return nome;
     }
     
     protected int getQuantidadeAtributos() {

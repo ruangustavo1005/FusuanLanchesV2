@@ -1,7 +1,9 @@
 package model;
 
+import interfaces.ListagemMaqueada;
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -18,7 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbsolicitacaoabastecimento")
-public class SolicitacaoAbastecimento implements ListagemParcial {
+public class SolicitacaoAbastecimento implements ListagemParcial, ListagemMaqueada {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -130,6 +132,15 @@ public class SolicitacaoAbastecimento implements ListagemParcial {
         ArrayList<String> campos = new ArrayList<>();
         campos.add("itens");
         return campos;
+    }
+    
+    @Override
+    public HashMap<String, String> getTitulosColunas() {
+        HashMap<String, String> titulos = new HashMap<>();
+        titulos.put("numero",     "Número");
+        titulos.put("dataLimite", "Data limite");
+        titulos.put("situacao",   "Situação");
+        return titulos;
     }
     
 }

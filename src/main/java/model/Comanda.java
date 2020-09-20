@@ -1,9 +1,11 @@
 package model;
 
 import interfaces.ListagemAdicional;
+import interfaces.ListagemMaqueada;
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -20,7 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbcomanda")
-public class Comanda implements ListagemParcial, ListagemAdicional, Comparator<Comanda> {
+public class Comanda implements ListagemParcial, ListagemAdicional, Comparator<Comanda>, ListagemMaqueada {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -135,7 +137,7 @@ public class Comanda implements ListagemParcial, ListagemAdicional, Comparator<C
         campos.add("itens");
         return campos;
     }
-
+ 
     @Override
     public ArrayList<String> getCamposAdicionar() {
         ArrayList<String> campos = new ArrayList<>();
@@ -151,6 +153,13 @@ public class Comanda implements ListagemParcial, ListagemAdicional, Comparator<C
             return -1;
         }
         return 0;
+    }
+        
+    public HashMap<String, String> getTitulosColunas() {
+        HashMap<String, String> titulos = new HashMap<>();
+        titulos.put("numero",     "Número");
+        titulos.put("valorFinal", "Valor final");
+        return titulos;
     }
     
 }
