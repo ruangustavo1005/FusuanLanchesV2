@@ -147,6 +147,7 @@ public class Comanda implements ListagemParcial, ListagemAdicional, ListagemMaqu
     @Override
     public HashMap<String, String> getTitulosColunas() {
         HashMap<String, String> titulos = new HashMap<>();
+        titulos.put("numero",     "Número");
         titulos.put("valorFinal", "Valor final");
         return titulos;
     }

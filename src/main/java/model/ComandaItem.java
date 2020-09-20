@@ -1,9 +1,11 @@
 package model;
 
 import interfaces.ListagemAdicional;
+import interfaces.ListagemMaqueada;
 import interfaces.ListagemParcial;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -15,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbcomandaitem")
-public class ComandaItem implements ListagemParcial, Serializable, ListagemAdicional {
+public class ComandaItem implements ListagemParcial, Serializable, ListagemAdicional, ListagemMaqueada {
     
     @Id
     @ManyToOne
@@ -79,6 +81,13 @@ public class ComandaItem implements ListagemParcial, Serializable, ListagemAdici
         ArrayList<String> campos = new ArrayList<>();
         campos.add("valorItem");
         return campos;
+    }
+
+    @Override
+    public HashMap<String, String> getTitulosColunas() {
+        HashMap<String, String> titulos = new HashMap<>();
+        titulos.put("valorItem", "Valor");
+        return titulos;
     }
        
 }

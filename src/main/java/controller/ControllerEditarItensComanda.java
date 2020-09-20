@@ -85,7 +85,7 @@ public class ControllerEditarItensComanda extends Controller {
                 if (getInstanceView().temComandaItemSelecionado()) {
                     ComandaItem comandaItem = getInstanceView().getComandaItemSelecionado();
                     int quantidade = getInstanceView().getQuantidadeEditar();
-                    if (comandaItem.getQuantidade() >= quantidade) {
+                    if (comandaItem.getQuantidade() > quantidade) {
                         comandaItem.setQuantidade(comandaItem.getQuantidade() - quantidade);
                         getInstanceView().atualizaTotalItens();
                         getInstanceView().getTableModelItens().update(getInstanceView().getTableModelItens().indexOf(comandaItem));

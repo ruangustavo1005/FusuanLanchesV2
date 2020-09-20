@@ -98,7 +98,7 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         return this.getAtributo(this.modelos.get(rowIndex), columnIndex);
     }
-
+    
     @Override
     public String getColumnName(int column) {
         String nome = StringUtils.ucfirst(this.getNomeAtributo(column));
