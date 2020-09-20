@@ -1,8 +1,10 @@
 package model;
 
 import interfaces.ListagemAdicional;
+import interfaces.ListagemMaqueada;
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -19,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbcomanda")
-public class Comanda implements ListagemParcial, ListagemAdicional {
+public class Comanda implements ListagemParcial, ListagemAdicional, ListagemMaqueada {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -140,6 +142,13 @@ public class Comanda implements ListagemParcial, ListagemAdicional {
         ArrayList<String> campos = new ArrayList<>();
         campos.add("valorFinal");
         return campos;
+    }
+
+    @Override
+    public HashMap<String, String> getTitulosColunas() {
+        HashMap<String, String> titulos = new HashMap<>();
+        titulos.put("valorFinal", "Valor final");
+        return titulos;
     }
     
 }
