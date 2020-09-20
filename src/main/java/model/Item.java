@@ -80,7 +80,7 @@ public class Item implements ListagemMaqueada {
 
     @Override
     public String toString() {
-        return "(" + codigo + ") - " +nome;
+        return "("+ codigo +") - " +nome;
     }
     
     @Override

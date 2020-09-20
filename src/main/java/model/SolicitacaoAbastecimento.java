@@ -138,7 +138,7 @@ public class SolicitacaoAbastecimento implements ListagemParcial, ListagemMaquea
     public HashMap<String, String> getTitulosColunas() {
         HashMap<String, String> titulos = new HashMap<>();
         titulos.put("numero",     "Número");
-        titulos.put("dataLimite", "Data limite");
+        titulos.put("dataLimite", "Data Limite");
         titulos.put("situacao",   "Situação");
         return titulos;
     }

@@ -101,7 +101,7 @@ public class Log {
 
     @Override
     public String toString() {
-        return "Log(" + this.codigo + "): Tipo: " + tipo + ", Data: " + data + ", Comando: " + comando + ", Descrição: " + descricao;
+        return "Log("+ this.codigo +"): Tipo: " + tipo + ", Data: " + data + ", Comando: " + comando + ", Descrição: " + descricao;
     }
     
 }

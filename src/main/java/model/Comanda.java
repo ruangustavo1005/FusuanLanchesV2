@@ -158,7 +158,7 @@ public class Comanda implements ListagemParcial, ListagemAdicional, Comparator<C
     public HashMap<String, String> getTitulosColunas() {
         HashMap<String, String> titulos = new HashMap<>();
         titulos.put("numero",     "Número");
-        titulos.put("valorFinal", "Valor final");
+        titulos.put("valorFinal", "Valor Final");
         return titulos;
     }
     
