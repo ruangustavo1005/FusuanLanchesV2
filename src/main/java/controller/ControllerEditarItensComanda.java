@@ -1,6 +1,6 @@
 package controller;
 
-import dao.Dao;
+import dao.DaoComandaItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Comanda;
@@ -17,10 +17,10 @@ public class ControllerEditarItensComanda extends Controller {
     static private ControllerEditarItensComanda instance;
 
     private Comanda comanda; 
-    private Dao<ComandaItem> daoComandaItem;
+    private DaoComandaItem daoComandaItem;
 
     public ControllerEditarItensComanda() {
-        this.daoComandaItem = new Dao(ComandaItem.class);
+        this.daoComandaItem = new DaoComandaItem();
         this.adicionaAcoes();
     }
     
@@ -39,6 +39,7 @@ public class ControllerEditarItensComanda extends Controller {
                 Item item = getInstanceView().getItemSelecionado();
                 int quantidade = getInstanceView().getQuantidadeAdicionar();
                 ComandaItem comandaItem = new ComandaItem(item, comanda, quantidade);
+                getInstanceView().atualizaTotalItens();
                 getInstanceView().getTableModelItens().add(comandaItem);
             }
         });
@@ -50,6 +51,7 @@ public class ControllerEditarItensComanda extends Controller {
             public void actionPerformed(ActionEvent e) {
                 if (getInstanceView().temComandaItemSelecionado()) {
                     getInstanceView().getTableModelItens().remove(getInstanceView().getComandaItemSelecionado());
+                    getInstanceView().atualizaTotalItens();
                 }
                 else {
                     getInstanceView().showMensagem("Selecione um item!");
@@ -66,6 +68,7 @@ public class ControllerEditarItensComanda extends Controller {
                     ComandaItem comandaItem = getInstanceView().getComandaItemSelecionado();
                     int quantidade = getInstanceView().getQuantidadeEditar();
                     comandaItem.setQuantidade(comandaItem.getQuantidade() + quantidade);
+                    getInstanceView().atualizaTotalItens();
                     getInstanceView().getTableModelItens().update(getInstanceView().getTableModelItens().indexOf(comandaItem));
                 }
                 else {
@@ -84,6 +87,7 @@ public class ControllerEditarItensComanda extends Controller {
                     int quantidade = getInstanceView().getQuantidadeEditar();
                     if (comandaItem.getQuantidade() >= quantidade) {
                         comandaItem.setQuantidade(comandaItem.getQuantidade() - quantidade);
+                        getInstanceView().atualizaTotalItens();
                         getInstanceView().getTableModelItens().update(getInstanceView().getTableModelItens().indexOf(comandaItem));
                     }
                     else {
@@ -102,7 +106,7 @@ public class ControllerEditarItensComanda extends Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean sucesso = true;
-                for (ComandaItem comandaItem : comanda.getItens()) {
+                for (ComandaItem comandaItem : daoComandaItem.getItensFromComanda(comanda)) {
                     if (!daoComandaItem.remove(comandaItem)) {
                         getInstanceView().showMensagem("Houve um erro ao editar o item \"" + comandaItem.getItem().getNome() + "\"!");
                         sucesso = false;

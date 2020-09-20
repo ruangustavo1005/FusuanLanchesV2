@@ -1,5 +1,6 @@
 package model;
 
+import interfaces.ListagemAdicional;
 import interfaces.ListagemParcial;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbcomandaitem")
-public class ComandaItem implements ListagemParcial, Serializable {
+public class ComandaItem implements ListagemParcial, Serializable, ListagemAdicional {
     
     @Id
     @ManyToOne
@@ -24,20 +25,13 @@ public class ComandaItem implements ListagemParcial, Serializable {
     private Comanda comanda;
     private int     quantidade;
     
-    /**
-     * Cada item da comanda vai ter seu valor por que podem ser adicioandos descontos na hora da venda.
-     * O valor do item que é salvo nele é apenas o valor base pra este.
-     */
-//    private float   valor;
-
     public ComandaItem() {
     }
 
-    public ComandaItem(Item item, Comanda comanda, int quantidade/*, float valor*/) {
+    public ComandaItem(Item item, Comanda comanda, int quantidade) {
         this.item = item;
         this.comanda = comanda;
         this.quantidade = quantidade;
-//        this.valor = valor;
     }
 
     public Item getItem() {
@@ -63,24 +57,27 @@ public class ComandaItem implements ListagemParcial, Serializable {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-
-//    public float getValor() {
-//        return valor;
-//    }
-
-//    public void setValor(float valor) {
-//        this.valor = valor;
-//    }
+    
+    public float getValorItem() {
+        return this.getQuantidade() * this.getItem().getValor();
+    }
 
     @Override
     public String toString() {
-        return "ComandaItem: Item: " + item + ", Comanda: " + comanda + ", Quantidade: " + quantidade/* + ", Valor: " + valor*/;
+        return "ComandaItem: Item: " + item + ", Comanda: " + comanda + ", Quantidade: " + quantidade;
     }
 
     @Override
     public ArrayList<String> getCamposIgnorar() {
         ArrayList<String> campos = new ArrayList<>();
         campos.add("comanda");
+        return campos;
+    }
+
+    @Override
+    public ArrayList<String> getCamposAdicionar() {
+        ArrayList<String> campos = new ArrayList<>();
+        campos.add("valorItem");
         return campos;
     }
        

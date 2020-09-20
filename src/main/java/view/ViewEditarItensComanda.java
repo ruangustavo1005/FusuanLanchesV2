@@ -2,7 +2,6 @@ package view;
 
 import java.awt.event.ActionListener;
 import java.util.List;
-import javax.swing.JFormattedTextField;
 import javax.swing.JTable;
 import model.Comanda;
 import model.ComandaItem;
@@ -30,6 +29,7 @@ public class ViewEditarItensComanda extends View {
     public void setVisible(boolean b) {
         if (b) {
             this.tableModelItens.setModelos(comanda.getItens());
+            this.atualizaTotalItens();
         }
         super.setVisible(b);
     }
@@ -67,6 +67,8 @@ public class ViewEditarItensComanda extends View {
         txtQuantidadeAdicionar = new javax.swing.JFormattedTextField();
         jSeparator2 = new javax.swing.JSeparator();
         btnSalvar = new javax.swing.JButton();
+        txtTotal = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edição dos itens da comanda");
@@ -88,12 +90,21 @@ public class ViewEditarItensComanda extends View {
 
         btnSalvar.setText("Salvar alterações");
 
+        txtTotal.setEditable(false);
+
+        jLabel3.setText("Total:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbxItens, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -120,10 +131,9 @@ public class ViewEditarItensComanda extends View {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(cbxItens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -146,9 +156,14 @@ public class ViewEditarItensComanda extends View {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSalvar)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(btnSalvar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,6 +216,10 @@ public class ViewEditarItensComanda extends View {
     public int getQuantidadeEditar() {
         return NumberUtils.parseInt(txtQuantidadeEditar.getText());
     }
+
+    public void atualizaTotalItens() {
+        txtTotal.setText(NumberUtils.formataValor(comanda.getValorFinal()));
+    }
     
     public void adicionaAcaoAdicionarItem(ActionListener actionListener) {
         this.btnAdicionarItem.addActionListener(actionListener);
@@ -233,11 +252,13 @@ public class ViewEditarItensComanda extends View {
     private javax.swing.JComboBox<Item> cbxItens;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable;
     private javax.swing.JFormattedTextField txtQuantidadeAdicionar;
     private javax.swing.JFormattedTextField txtQuantidadeEditar;
+    private javax.swing.JFormattedTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

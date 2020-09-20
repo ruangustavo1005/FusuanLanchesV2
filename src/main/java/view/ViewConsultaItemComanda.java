@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import model.ComandaItem;
@@ -56,7 +55,7 @@ public class ViewConsultaItemComanda extends View {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

@@ -1,5 +1,6 @@
 package view;
 
+import interfaces.ListagemAdicional;
 import interfaces.ListagemParcial;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -37,6 +38,11 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
         if (modelo instanceof ListagemParcial) {
             ((ListagemParcial) modelo).getCamposIgnorar().forEach(atributo -> {
                 this.atributos.remove(atributo);
+            });
+        }
+        if (modelo instanceof ListagemAdicional) {
+            ((ListagemAdicional) modelo).getCamposAdicionar().forEach(atributo -> {
+                this.atributos.add(atributo);
             });
         }
     }
@@ -116,7 +122,7 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
                | IllegalAccessException
                | IllegalArgumentException
                | InvocationTargetException ex) {
-            
+            System.out.println("O método " + metodo + " não existe na classe " + model.getClass().getName() + "!");
         }
         return retorno;
     }

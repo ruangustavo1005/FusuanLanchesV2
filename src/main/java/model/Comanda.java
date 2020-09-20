@@ -1,5 +1,6 @@
 package model;
 
+import interfaces.ListagemAdicional;
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbcomanda")
-public class Comanda implements ListagemParcial {
+public class Comanda implements ListagemParcial, ListagemAdicional {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -131,6 +132,13 @@ public class Comanda implements ListagemParcial {
         ArrayList<String> campos = new ArrayList<>();
         campos.add("aberto");
         campos.add("itens");
+        return campos;
+    }
+
+    @Override
+    public ArrayList<String> getCamposAdicionar() {
+        ArrayList<String> campos = new ArrayList<>();
+        campos.add("valorFinal");
         return campos;
     }
     

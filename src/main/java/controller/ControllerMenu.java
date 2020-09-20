@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.Comanda;
+import util.NumberUtils;
 import view.ViewIndex;
 
 /**
@@ -220,15 +221,14 @@ public class ControllerMenu extends Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ViewIndex view = getInstanceView();
-                
                 int indiceSelecionado = view.getTbComanda().getSelectedRow();
-                
                 if (indiceSelecionado < 0) {
                     view.showMensagem("Selecione uma comanda para fechar!");
                 }
                 else if (JOptionPane.showConfirmDialog(view, "Deseja fechar a comanda selecionada?") == JOptionPane.YES_OPTION) {
                     Comanda comanda = view.getTableModelComanda().get(indiceSelecionado);
                     ControllerComanda.getInstance().fechaComanda(comanda);
+                    view.showMensagem("Valor final da comanda: R$ " + NumberUtils.formataValor(comanda.getValorFinal()));
                     view.getTableModelComanda().remove(indiceSelecionado);
                 }
             }

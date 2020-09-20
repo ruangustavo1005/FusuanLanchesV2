@@ -26,7 +26,7 @@ public class ControllerConsultaItemComanda extends Controller {
     
     @Override
     protected ViewConsultaItemComanda getInstanceView() {
-        return ViewConsultaItemComanda.getInstance().getInstance().getInstance();
+        return ViewConsultaItemComanda.getInstance();
     }
 
     public Comanda getComanda() {

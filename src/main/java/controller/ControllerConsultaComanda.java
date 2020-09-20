@@ -47,15 +47,16 @@ public class ControllerConsultaComanda extends Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int indice = getInstanceView().getTable().getSelectedRow();
-                if (JOptionPane.showConfirmDialog(getInstanceView(), "Deseja remover a comanda \"" + getComandaFromIndice(indice).getNumero() + "\"?") == JOptionPane.YES_OPTION) {
-                    if(indice >= 0) {
-                        if (ControllerComanda.getInstance().getComandas().remove(getComandaFromIndice(indice))) {
-                            getInstanceView().getTableModel().remove(indice);
-                            getInstanceView().showMensagem("Comanda removida com sucesso!");
+                if (indice != -1) {
+                    if (JOptionPane.showConfirmDialog(getInstanceView(), "Deseja remover a comanda \"" + getComandaFromIndice(indice).getNumero() + "\"?") == JOptionPane.YES_OPTION) {
+                            if (ControllerComanda.getInstance().getComandas().remove(getComandaFromIndice(indice))) {
+                                getInstanceView().getTableModel().remove(indice);
+                                getInstanceView().showMensagem("Comanda removida com sucesso!");
+                            }
                         }
-                    } else {
-                        getInstanceView().showMensagem("Selecione uma comanda para remover!");
                     }
+                else {
+                    getInstanceView().showMensagem("Selecione uma comanda para remover!");
                 }
             }
         });
