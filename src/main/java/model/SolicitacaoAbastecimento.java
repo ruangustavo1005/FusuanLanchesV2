@@ -21,7 +21,7 @@ import javax.persistence.Table;
 public class SolicitacaoAbastecimento implements ListagemParcial {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int                     numero;
     @ManyToOne
     private Gerente                 gerente;

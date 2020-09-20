@@ -48,6 +48,7 @@ public class ViewConsultaComanda extends View {
         btnItensComanda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consulta de Comandas");
 
         tbComandas.setModel(tableModel);
         jScrollPane1.setViewportView(tbComandas);

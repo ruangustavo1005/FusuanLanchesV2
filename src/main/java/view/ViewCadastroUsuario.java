@@ -254,12 +254,16 @@ public class ViewCadastroUsuario extends View {
     private void cbTipoUsuarioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTipoUsuarioItemStateChanged
         if (this.cbTipoUsuario.getSelectedIndex() == TIPO_CLIENTE) {
             this.txtDataNascimento.setEnabled(this.cbTipoUsuario.getSelectedIndex() == TIPO_CLIENTE);
-        } else {
-            this.txtDataNascimento.setEnabled(false);
-            this.txtDataNascimento.setText("");
             this.txtLogin.setEnabled(false);
             this.txtSenha.setEnabled(false);
             this.txtConfirmarSenha.setEnabled(false);
+        } else {
+            this.txtDataNascimento.setEnabled(false);
+            this.txtDataNascimento.setText("");
+            this.txtConfirmarSenha.setEnabled(false);
+            this.txtLogin.setEnabled(true);
+            this.txtSenha.setEnabled(true);
+            this.txtConfirmarSenha.setEnabled(true);
         }
         if (this.cbTipoUsuario.getSelectedIndex() == TIPO_FORNECEDOR) {
             this.txtTelefone.setEnabled(true);

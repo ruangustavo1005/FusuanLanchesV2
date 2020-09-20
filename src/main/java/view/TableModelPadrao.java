@@ -5,7 +5,9 @@ import interfaces.ListagemParcial;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
 import util.StringUtils;
 
@@ -53,6 +55,18 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
 
     public void setModelos(List<Type> modelos) {
         this.modelos = modelos;
+    }
+
+    @Override
+    public void fireTableChanged(TableModelEvent e) {
+        this.sort();
+        super.fireTableChanged(e);
+    }
+        
+    public void sort() {
+        if (modelo instanceof Comparator) {
+            this.modelos.sort((Comparator<Type>) modelo);
+        }
     }
 
     public void add(Type model) {

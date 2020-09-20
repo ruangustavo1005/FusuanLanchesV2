@@ -20,7 +20,7 @@ public class Log {
                             TIPO_ALERTA  = 3;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int     codigo;
     @ManyToOne
     private Usuario usuario;

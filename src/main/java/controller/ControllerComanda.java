@@ -190,7 +190,7 @@ public class ControllerComanda extends Controller {
     
     public ArrayList<Comanda> listar() {
         return this.comandas.get();
-   }
+    }
     
     public ArrayList<Comanda> listarAbertas() {
         ArrayList<Comanda> abertas = new ArrayList<>();

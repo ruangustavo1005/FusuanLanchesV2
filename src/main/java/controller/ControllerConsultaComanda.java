@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.Comanda;
 import view.ViewConsultaComanda;
+import view.ViewIndex;
 
 /**
  * Controller de consulta das comandas
@@ -34,6 +35,7 @@ public class ControllerConsultaComanda extends Controller {
     public void montaTela() {
         this.getInstanceView().setDadosTableModel(ControllerComanda.getInstance().listar());
         this.adicionaAcoesTela();
+        getInstanceView().getTableModel().sort();
         super.montaTela();
     }
     
@@ -49,8 +51,10 @@ public class ControllerConsultaComanda extends Controller {
                 int indice = getInstanceView().getTable().getSelectedRow();
                 if (indice != -1) {
                     if (JOptionPane.showConfirmDialog(getInstanceView(), "Deseja remover a comanda \"" + getComandaFromIndice(indice).getNumero() + "\"?") == JOptionPane.YES_OPTION) {
-                            if (ControllerComanda.getInstance().getComandas().remove(getComandaFromIndice(indice))) {
+                            Comanda comanda = getComandaFromIndice(indice);
+                            if (ControllerComanda.getInstance().getComandas().remove(comanda)) {
                                 getInstanceView().getTableModel().remove(indice);
+                                ViewIndex.getInstance().getTableModelComanda().remove(comanda);
                                 getInstanceView().showMensagem("Comanda removida com sucesso!");
                             }
                         }

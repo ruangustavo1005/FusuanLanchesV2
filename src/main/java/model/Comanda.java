@@ -3,6 +3,7 @@ package model;
 import interfaces.ListagemAdicional;
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -19,10 +20,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tbcomanda")
-public class Comanda implements ListagemParcial, ListagemAdicional {
+public class Comanda implements ListagemParcial, ListagemAdicional, Comparator<Comanda> {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int                    numero;
     @ManyToOne
     private Atendente              atendente;
@@ -140,6 +141,16 @@ public class Comanda implements ListagemParcial, ListagemAdicional {
         ArrayList<String> campos = new ArrayList<>();
         campos.add("valorFinal");
         return campos;
+    }
+
+    @Override
+    public int compare(Comanda c1, Comanda c2) {
+        if(c2.getNumero() > c1.getNumero()) {
+            return 1;
+        } else if(c2.getNumero() < c1.getNumero()) {
+            return -1;
+        }
+        return 0;
     }
     
 }

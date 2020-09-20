@@ -27,8 +27,16 @@ public class ViewCadastroComanda extends View {
     private ViewCadastroComanda() {
         this.tableModelComandaItem = new TableModelPadrao(new ComandaItem());
         initComponents();
-        this.formataCampos();
     }
+
+    @Override
+    public void setVisible(boolean b) {
+        if(b) {
+            this.formataCampos();    
+        }
+        super.setVisible(b); 
+    }
+    
     
     /**
      * Formata os campos da tela
