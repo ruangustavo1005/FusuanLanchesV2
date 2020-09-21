@@ -113,11 +113,13 @@ public class ControllerEditarItensComanda extends Controller {
                         break;
                     }
                 }
-                for (ComandaItem comandaItem : getInstanceView().getTableModelItens().getModelos()) {
-                    if (!daoComandaItem.add(comandaItem) ){
-                        getInstanceView().showMensagem("Houve um erro ao editar o item \"" + comandaItem.getItem().getNome() + "\"!");
-                        sucesso = false;
-                        break;
+                if (sucesso) {
+                    for (ComandaItem comandaItem : getInstanceView().getTableModelItens().getModelos()) {
+                        if (!daoComandaItem.add(comandaItem) ){
+                            getInstanceView().showMensagem("Houve um erro ao editar o item \"" + comandaItem.getItem().getNome() + "\"!");
+                            sucesso = false;
+                            break;
+                        }
                     }
                 }
                 if (sucesso) {

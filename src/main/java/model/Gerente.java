@@ -7,12 +7,12 @@ import javax.persistence.Entity;
  * @author Ruan
  */
 @Entity
-public class Gerente extends Pessoa{
+public class Gerente extends Pessoa {
 
     public Gerente() {
+        
     }
     
-
     public Gerente(String cpfCnpj, String nome, String email) {
         super(cpfCnpj, nome, email);
     }
