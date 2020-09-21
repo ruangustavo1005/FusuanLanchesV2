@@ -11,6 +11,7 @@ import model.Cliente;
 import model.Comanda;
 import model.ComandaItem;
 import model.Item;
+import util.DateUtils;
 import util.NumberUtils;
 
 /**
@@ -37,20 +38,13 @@ public class ViewCadastroComanda extends View {
         super.setVisible(b); 
     }
     
-    
     /**
      * Formata os campos da tela
      */
     private void formataCampos() {
         this.formataCampo(txtMesa,   "###",      '0');
         this.formataCampo(txtData,   CAMPO_DATA, '0');
-        txtData.setText(this.getDataAtual());
-    }
-    
-    private String getDataAtual() {
-	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-	Date date = new Date();
-	return dateFormat.format(date);
+        txtData.setText(DateUtils.now());
     }
     
     @Override
