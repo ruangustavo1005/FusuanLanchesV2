@@ -37,10 +37,19 @@ public class ControllerEditarItensComanda extends Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Item item = getInstanceView().getItemSelecionado();
-                int quantidade = getInstanceView().getQuantidadeAdicionar();
-                ComandaItem comandaItem = new ComandaItem(item, comanda, quantidade);
-                getInstanceView().atualizaTotalItens();
-                getInstanceView().getTableModelItens().add(comandaItem);
+                boolean itemExiste = false;
+                for (ComandaItem itemExistente : getInstanceView().getTableModelItens().getModelos()) {
+                    itemExiste = itemExiste || itemExistente.getItem().getCodigo() == item.getCodigo();
+                }
+                if (itemExiste) {
+                    getInstanceView().showMensagem("O item \"" + item.getNome() + "\" já existe na comanda, altere a sua quantidade!");
+                }
+                else {
+                    int quantidade = getInstanceView().getQuantidadeAdicionar();
+                    ComandaItem comandaItem = new ComandaItem(item, comanda, quantidade);
+                    getInstanceView().atualizaTotalItens();
+                    getInstanceView().getTableModelItens().add(comandaItem);
+                }
             }
         });
     }
