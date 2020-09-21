@@ -210,7 +210,13 @@ public class ControllerMenu extends Controller {
                 }
                 else {
                     Comanda comanda = getInstanceView().getTableModelComanda().get(indice);
-                    ControllerComanda.getInstance().removerComanda(comanda);
+                    if (ControllerComanda.getInstance().removerComanda(comanda)) {
+                        getInstanceView().getTableModelComanda().remove(comanda);
+                        getInstanceView().showMensagem("Comanda removida com sucesso!");
+                    }
+                    else {
+                        getInstanceView().showMensagem("Houve um erro ao tentar remover a comanda \"" + comanda.getNumero() + "\"!");
+                    }
                 }
             }
         });

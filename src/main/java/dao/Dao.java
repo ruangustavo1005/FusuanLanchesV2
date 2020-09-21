@@ -108,7 +108,7 @@ public class Dao<Type> {
     }
     
     static public boolean loga(String operacao, Exception e) {
-        return (new Dao<>(Log.class)).add(new Log(ControllerLogin.getUsuarioLogado(), Log.TIPO_ERRO, operacao, e.getCause().toString()  , DateUtils.nowComplete(), false));
+        return (new Dao<>(Log.class)).add(new Log(ControllerLogin.getUsuarioLogado(), Log.TIPO_ERRO, operacao, e.getCause().toString(), DateUtils.nowComplete(), false));
     }
     
     protected final void begin() {
