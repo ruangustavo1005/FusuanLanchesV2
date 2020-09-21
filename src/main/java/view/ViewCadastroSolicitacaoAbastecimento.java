@@ -8,6 +8,7 @@ import model.Fornecedor;
 import model.Gerente;
 import model.Item;
 import model.SolicitacaoAbastecimento;
+import util.DateUtils;
 import util.NumberUtils;
 
 /**
@@ -271,6 +272,16 @@ public class ViewCadastroSolicitacaoAbastecimento extends View {
     @Override
     public void run() {
         getInstance().setVisible(true);
+    }
+
+    @Override
+    public void setVisible(boolean b) {
+        if (b) {
+            if (this.solicitacaoAbastecimento == null) {
+                this.txtData.setValue(DateUtils.now());
+            }
+        }
+        super.setVisible(b);
     }
 
     public void adicionaAcaoAdicionarItem(ActionListener actionListener) {
