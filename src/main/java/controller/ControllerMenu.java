@@ -190,7 +190,7 @@ public class ControllerMenu extends Controller {
                     
                 Comanda comanda = view.getTableModelComanda().getModelos().get(indiceSelecionado);
                     
-                controllerComanda.setComanda(comanda);
+                controllerComanda.setComanda(controllerComanda.getComandas().get(comanda.getNumero()));
                 controllerComanda.montaTela();
             }
         });

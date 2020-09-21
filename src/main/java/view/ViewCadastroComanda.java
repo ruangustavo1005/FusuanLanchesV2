@@ -29,21 +29,16 @@ public class ViewCadastroComanda extends View {
 
     @Override
     public void setVisible(boolean b) {
-        if(b) {
-            this.formataCampos();    
+        if (b) {
+            if (this.comanda == null) {
+                txtData.setText(DateUtils.now());
+                this.formataCampo(txtMesa, "###",      '0');
+                this.formataCampo(txtData, CAMPO_DATA, '0');
+            }
         }
         super.setVisible(b); 
     }
-    
-    /**
-     * Formata os campos da tela
-     */
-    private void formataCampos() {
-        this.formataCampo(txtMesa,   "###",      '0');
-        this.formataCampo(txtData,   CAMPO_DATA, '0');
-        txtData.setText(DateUtils.now());
-    }
-    
+        
     @Override
     public Comanda getModelFromTela() {
         this.comanda = new Comanda();
