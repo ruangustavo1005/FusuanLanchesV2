@@ -130,6 +130,13 @@ public class Comanda implements ListagemParcial, ListagemAdicional, Comparator<C
         return valor;
     }
     
+    public String getAbertoConsulta() {
+        if (aberto) {
+            return "Aberta";
+        }
+        return "Fechada";
+    }
+    
     @Override
     public ArrayList<String> getCamposIgnorar() {
         ArrayList<String> campos = new ArrayList<>();
@@ -142,6 +149,7 @@ public class Comanda implements ListagemParcial, ListagemAdicional, Comparator<C
     public ArrayList<String> getCamposAdicionar() {
         ArrayList<String> campos = new ArrayList<>();
         campos.add("valorFinal");
+        campos.add("abertoConsulta");
         return campos;
     }
 
@@ -157,8 +165,9 @@ public class Comanda implements ListagemParcial, ListagemAdicional, Comparator<C
         
     public HashMap<String, String> getTitulosColunas() {
         HashMap<String, String> titulos = new HashMap<>();
-        titulos.put("numero",     "Número");
-        titulos.put("valorFinal", "Valor Final");
+        titulos.put("numero",         "Número");
+        titulos.put("valorFinal",     "Valor Final");
+        titulos.put("abertoConsulta", "Aberta?");
         return titulos;
     }
     
